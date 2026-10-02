@@ -1,0 +1,359 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: #fff5fa;
+    color: #5d4050;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#app {
+    width: 100%;
+    height: 100dvh;
+}
+
+.scene {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100dvh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #ffffff 0%,
+            #fff5fa 45%,
+            #ffe7f2 100%
+        );
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.03);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0.8s;
+}
+
+.scene.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.scene-content {
+    width: 100%;
+    max-width: 430px;
+    position: relative;
+    z-index: 5;
+}
+
+.instruction {
+    font-size: 18px;
+    margin-bottom: 45px;
+    color: #9b607d;
+}
+
+.cake {
+    position: relative;
+    width: 210px;
+    height: 230px;
+    margin: auto;
+}
+
+.cake-body {
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+
+    width: 200px;
+    height: 120px;
+
+    border-radius: 25px 25px 35px 35px;
+
+    background: linear-gradient(
+        #ffb6d2,
+        #ff91bb
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 75px;
+}
+
+.cake-top {
+    position: absolute;
+
+    bottom: 95px;
+    left: 20px;
+
+    width: 170px;
+    height: 55px;
+
+    background: #fff;
+    border-radius: 50%;
+
+    z-index: 2;
+}
+
+.candle {
+    position: absolute;
+
+    width: 15px;
+    height: 75px;
+
+    background: #fff;
+    border-radius: 8px;
+
+    bottom: 135px;
+    left: 98px;
+
+    z-index: 4;
+}
+
+.flame {
+    position: absolute;
+
+    bottom: 205px;
+    left: 87px;
+
+    font-size: 35px;
+
+    z-index: 10;
+
+    cursor: pointer;
+
+    animation: flame 0.8s infinite alternate;
+}
+
+@keyframes flame {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.12);
+    }
+}
+
+.flame.off {
+    opacity: 0;
+    transform: scale(0.2);
+    transition: 0.4s;
+}
+
+.birds {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.birds span {
+    position: absolute;
+
+    font-size: 27px;
+
+    animation: fly linear infinite;
+}
+
+.birds span:nth-child(1) {
+    top: 15%;
+    left: -15%;
+    animation-duration: 9s;
+}
+
+.birds span:nth-child(2) {
+    top: 28%;
+    left: -20%;
+    animation-duration: 12s;
+}
+
+.birds span:nth-child(3) {
+    top: 45%;
+    left: -10%;
+    animation-duration: 10s;
+}
+
+.birds span:nth-child(4) {
+    top: 65%;
+    left: -20%;
+    animation-duration: 14s;
+}
+
+.birds span:nth-child(5) {
+    top: 75%;
+    left: -10%;
+    animation-duration: 11s;
+}
+
+.birds span:nth-child(6) {
+    top: 35%;
+    left: -30%;
+    animation-duration: 15s;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+
+    50% {
+        transform: translateX(60vw) translateY(-25px);
+    }
+
+    100% {
+        transform: translateX(125vw) translateY(20px);
+    }
+}
+
+h1 {
+    font-size: 35px;
+    color: #e65b92;
+
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 30px;
+    color: #c64d7e;
+}
+
+.small-birds {
+    font-size: 35px;
+    margin-bottom: 35px;
+}
+
+.message {
+    font-size: 21px;
+    line-height: 2;
+
+    margin-bottom: 25px;
+}
+
+.emotional {
+    font-size: 20px;
+    line-height: 2.2;
+
+    margin-bottom: 30px;
+}
+
+button {
+    border: none;
+
+    background: linear-gradient(
+        135deg,
+        #ff8fbb,
+        #e95c91
+    );
+
+    color: white;
+
+    font-size: 17px;
+
+    padding: 15px 28px;
+
+    border-radius: 50px;
+
+    margin-top: 20px;
+
+    box-shadow:
+        0 10px 25px rgba(230, 91, 146, 0.25);
+
+    cursor: pointer;
+
+    transition: transform 0.2s;
+}
+
+button:active {
+    transform: scale(0.94);
+}
+
+.joke-image,
+.music-image {
+    width: 100%;
+    max-width: 300px;
+    height: 220px;
+
+    margin: 25px auto;
+
+    border-radius: 25px;
+
+    background: #ffe1ed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #b66a89;
+}
+
+.next-button {
+    display: block;
+    margin: 35px auto 0;
+}
+
+.final-birds {
+    font-size: 38px;
+    margin-bottom: 35px;
+
+    animation: floating 2s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-height: 650px) {
+
+    .instruction {
+        margin-bottom: 20px;
+    }
+
+    .cake {
+        transform: scale(0.8);
+        margin-top: -20px;
+        margin-bottom: -25px;
+    }
+
+    .message {
+        font-size: 18px;
+    }
+
+    .emotional {
+        font-size: 17px;
+    }
+}
