@@ -1,14 +1,235 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
-    <title>Happy Birthday</title>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>برای پرستو 🌸</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>تولدت مبارک 🎂</h1>
+    <main id="app">
 
-    <p>این سایت مخصوص تو ساخته شده.</p>
+        <!-- SCENE 1 -->
+        <section id="scene1" class="scene active">
+
+            <div class="birds">
+                <span>🕊️</span>
+                <span>🕊️</span>
+                <span>🕊️</span>
+                <span>🕊️</span>
+                <span>🕊️</span>
+                <span>🕊️</span>
+            </div>
+
+            <div class="scene-content">
+
+                <p class="instruction">
+                    با دستت شمعو خاموش کن 🕯️
+                </p>
+
+                <div class="cake">
+
+                    <div
+                        id="flame"
+                        class="flame"
+                        onclick="blowCandle()"
+                    >
+                        🔥
+                    </div>
+
+                    <div class="candle"></div>
+
+                    <div class="cake-top"></div>
+
+                    <div class="cake-body">
+                        🎂
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SCENE 2 -->
+        <section id="scene2" class="scene">
+
+            <div class="scene-content">
+
+                <div class="small-birds">
+                    🕊️ 🕊️ 🕊️
+                </div>
+
+                <h1>
+                    تولدت مبارک
+                </h1>
+
+                <h2>
+                    پرستو 🌸
+                </h2>
+
+            </div>
+
+        </section>
+
+
+        <!-- SCENE 3 -->
+        <section id="scene3" class="scene">
+
+            <div class="scene-content">
+
+                <p class="message">
+                    خب...
+                </p>
+
+                <p class="message delay1">
+                    قرار نبود چیز خیلی خاصی باشه...
+                </p>
+
+                <p class="message delay2">
+                    ولی خب، برای تو که نمی‌شه یه تبریک معمولی نوشت :)
+                </p>
+
+                <button onclick="nextScene(4)">
+                    ادامه بده 🌸
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SCENE 4 -->
+        <section id="scene4" class="scene">
+
+            <div class="scene-content">
+
+                <p class="message">
+                    راستی یه چیز مهم...
+                </p>
+
+                <p class="message">
+                    یه سورپرایز دیگه هم هست 👀
+                </p>
+
+                <div class="joke-image">
+                    عکس اینجا قرار می‌گیره
+                </div>
+
+                <button onclick="nextScene(5)">
+                    بزن ببینم 😂
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SCENE 5 -->
+        <section id="scene5" class="scene">
+
+            <div class="scene-content">
+
+                <p class="message">
+                    اینم همون آهنگی که می‌خواستی 🎧
+                </p>
+
+                <div class="music-image">
+                    عکس بامزه اینجا قرار می‌گیره
+                </div>
+
+                <button id="musicButton" onclick="playMusic()">
+                    🎧 بزن گوش کنم
+                </button>
+
+                <audio id="birthdayMusic">
+                    <source src="music/birthday.mp3" type="audio/mpeg">
+                </audio>
+
+                <button
+                    class="next-button"
+                    onclick="nextScene(6)"
+                >
+                    حالا یه چیز دیگه...
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SCENE 6 -->
+        <section id="scene6" class="scene">
+
+            <div class="scene-content">
+
+                <p class="emotional">
+                    ولی جدی...
+                </p>
+
+                <p class="emotional delay1">
+                    امیدوارم سال جدید زندگیت پر از اتفاقای خوب باشه.
+                </p>
+
+                <p class="emotional delay2">
+                    از اون اتفاقایی که وقتی بهشون فکر می‌کنی،
+                    ناخودآگاه لبخند بزنی.
+                </p>
+
+                <p class="emotional delay3">
+                    تولدت مبارک پرستو ❤️
+                </p>
+
+                <button onclick="nextScene(7)">
+                    🕊️
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SCENE 7 -->
+        <section id="scene7" class="scene">
+
+            <div class="scene-content">
+
+                <div class="final-birds">
+                    🕊️ 🕊️ 🕊️
+                </div>
+
+                <h1>
+                    Happy Birthday
+                </h1>
+
+                <h2>
+                    Parastoo
+                </h2>
+
+                <p>
+                    Made especially for you.
+                </p>
+
+                <button onclick="restartSite()">
+                    ↻ دوباره از اول
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
