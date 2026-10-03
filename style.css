@@ -3227,11 +3227,3 @@ button:active {
     }
 
 }
-button,
-.flame,
-.photo-card,
-.music-card {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    user-select: none;
-}
