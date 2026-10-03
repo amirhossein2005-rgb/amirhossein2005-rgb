@@ -376,151 +376,303 @@
 </section>
 
 
-    <!-- ==================== SCENE 6 ==================== -->
-    <!-- صفحه آهنگ -->
+<!-- =====================================================
+     SCENE 6 - MUSIC
+     ===================================================== -->
 
-    <section id="scene6" class="scene">
+<section id="scene6" class="scene music-scene">
 
-        <div class="scene-content">
+    <div class="music-background">
+
+        <span>♪</span>
+        <span>♫</span>
+        <span>♪</span>
+        <span>♬</span>
+        <span>♪</span>
+        <span>♫</span>
+
+    </div>
 
 
-            <p class="message">
-                اینم همون آهنگی که می‌خواستی 🎧
-            </p>
+    <div class="scene-content music-content">
 
 
-            <div class="music-image">
+        <div class="music-headphone">
+            🎧
+        </div>
 
-                <img src="images/music.jpg" alt="گربه">
+
+        <p class="music-intro">
+            خب...
+        </p>
+
+
+        <h2 class="music-title">
+            اینم همون آهنگی که می‌خواستی
+        </h2>
+
+
+        <div class="music-card">
+
+
+            <!-- عکس آهنگ -->
+
+            <div class="music-photo">
+
+                <img
+                    src="images/music.jpg"
+                    alt="Music"
+                >
 
             </div>
 
+
+            <!-- اطلاعات آهنگ -->
+
+            <div class="music-info">
+
+                <p class="music-label">
+                    یه آهنگ برای تو 🎶
+                </p>
+
+                <div class="music-equalizer">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+
+            <!-- پلیر -->
 
             <button
                 id="musicButton"
+                class="music-play-button"
                 type="button"
                 onclick="playMusic()"
             >
-                🎧 بزار گوش کنم
+
+                <span id="musicPlayIcon">
+                    ▶
+                </span>
+
             </button>
 
 
-            <audio id="birthdayMusic">
+            <div class="music-progress">
 
-                <source
-                    src="Music/music.mp3"
-                    type="audio/mpeg"
-                >
-
-            </audio>
-
-
-            <button
-                class="next-button"
-                type="button"
-                onclick="nextScene(7)"
-            >
-                حالا یه چیز دیگه...
-            </button>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==================== SCENE 7 ==================== -->
-    <!-- صفحه احساسی -->
-
-    <section id="scene7" class="scene">
-
-        <div class="scene-content">
-
-
-            <p class="emotional">
-                ولی جدی...
-            </p>
-
-
-            <p class="emotional">
-                امیدوارم سال جدید زندگیت پر از اتفاقای خوب باشه.
-            </p>
-
-
-            <p class="emotional">
-                از اون اتفاقایی که وقتی بهشون فکر می‌کنی،
-                ناخودآگاه لبخند بزنی.
-            </p>
-
-
-            <p class="emotional">
-                تولدت مبارک دوست خوبم ❤️
-            </p>
-
-
-            <button
-                type="button"
-                onclick="nextScene(8)"
-            >
-                🕊️
-            </button>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==================== SCENE 8 ==================== -->
-    <!-- پایان -->
-
-    <section id="scene8" class="scene">
-
-        <div class="scene-content">
-
-
-            <div class="final-birds">
-
-                🕊️ 🕊️ 🕊️
+                <div
+                    id="musicProgressBar"
+                    class="music-progress-bar"
+                ></div>
 
             </div>
 
 
-            <h1>
-                Happy Birthday
-            </h1>
+            <div class="music-time">
 
+                <span id="musicCurrentTime">
+                    0:00
+                </span>
 
-            <h2>
-                Parastoo
-            </h2>
+                <span id="musicDuration">
+                    0:00
+                </span>
 
+            </div>
 
-            <p>
-                .Made especially for you
-            </p>
-
-
-            <button
-                type="button"
-                onclick="restartSite()"
-            >
-                ↻ دوباره از اول
-            </button>
 
         </div>
 
-    </section>
+
+        <!-- فایل آهنگ -->
+
+        <audio id="birthdayMusic">
+
+            <source
+                src="Music/music.mp3"
+                type="audio/mpeg"
+            >
+
+        </audio>
 
 
-</main>
+        <p class="music-hint">
+            وقتی آماده بودی، بزن ▶
+        </p>
+
+
+        <button
+            class="story-button music-next-button"
+            type="button"
+            onclick="nextScene(7)"
+        >
+            حالا یه چیز دیگه... ❤️
+        </button>
+
+
+    </div>
+
+</section>
 
 
 
-<script src="script.js"></script>
+<!-- =====================================================
+     SCENE 7 - EMOTIONAL
+     ===================================================== -->
+
+<section id="scene7" class="scene emotional-scene">
 
 
-</body>
+    <div class="emotional-background">
 
-</html>
-```
+        <span>♡</span>
+        <span>♡</span>
+        <span>✦</span>
+        <span>♡</span>
+        <span>✦</span>
+
+    </div>
+
+
+    <div class="scene-content emotional-content">
+
+
+        <div class="emotional-top-symbol">
+            ♡
+        </div>
+
+
+        <p class="emotional-line emotional-line-1">
+            ولی جدی...
+        </p>
+
+
+        <p class="emotional-line emotional-line-2">
+            امیدوارم سال جدید زندگیت
+            پر از اتفاقای خوب باشه.
+        </p>
+
+
+        <p class="emotional-line emotional-line-3">
+            از اون اتفاقایی که وقتی
+            بهشون فکر می‌کنی،
+            ناخودآگاه لبخند بزنی.
+        </p>
+
+
+        <p class="emotional-line emotional-line-4">
+            چون واقعاً لیاقتشو داری. 🌸
+        </p>
+
+
+        <div class="emotional-divider"></div>
+
+
+        <p class="final-wish">
+            تولدت مبارک پرستو ❤️
+        </p>
+
+
+        <button
+            type="button"
+            class="emotional-next-button"
+            onclick="nextScene(8)"
+        >
+            🕊️
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCENE 8 - FINAL
+     ===================================================== -->
+
+<section id="scene8" class="scene final-scene">
+
+
+    <!-- ذرات -->
+
+    <div class="final-particles">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+    <!-- پرستوها -->
+
+    <div class="final-birds">
+
+        <span>🕊️</span>
+        <span>🕊️</span>
+        <span>🕊️</span>
+
+    </div>
+
+
+    <div class="scene-content final-content">
+
+
+        <p class="final-small">
+            برای تو...
+        </p>
+
+
+        <h1 class="final-title">
+            Happy Birthday
+        </h1>
+
+
+        <h2 class="final-name">
+            Parastoo
+        </h2>
+
+
+        <div class="final-line"></div>
+
+
+        <p class="final-message">
+            امیدوارم امسال،
+            یکی از قشنگ‌ترین فصل‌های زندگیت باشه.
+        </p>
+
+
+        <p class="final-made">
+            Made especially for you ♡
+        </p>
+
+
+        <button
+            type="button"
+            class="restart-button"
+            onclick="restartSite()"
+        >
+            ↻ دوباره از اول
+        </button>
+
+
+    </div>
+
+</section>
