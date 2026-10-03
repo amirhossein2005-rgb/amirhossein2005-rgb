@@ -3227,3 +3227,18 @@ button:active {
     }
 
 }
+/* ==============================
+   FIX CANDLE FLAME POSITION
+   ============================== */
+
+.candle {
+    position: relative;
+}
+
+.candle .flame {
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+    z-index: 20;
+}
