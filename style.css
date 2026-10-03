@@ -1250,3 +1250,718 @@ button:active {
     }
 
 }
+/* =====================================================
+   SCENE 2
+   ===================================================== */
+
+#scene2 {
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #ffffff 0%,
+            #fff5fa 45%,
+            #ffe5f0 100%
+        );
+}
+
+
+.scene2-content {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.scene2-background {
+
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.scene2-background span {
+
+    position: absolute;
+
+    font-size: 24px;
+
+    opacity: .45;
+
+    animation: birdFloat 7s ease-in-out infinite;
+
+}
+
+
+.scene2-background span:nth-child(1) {
+    left: 12%;
+    top: 18%;
+    animation-delay: 0s;
+}
+
+
+.scene2-background span:nth-child(2) {
+    right: 15%;
+    top: 28%;
+    animation-delay: 1.5s;
+}
+
+
+.scene2-background span:nth-child(3) {
+    left: 20%;
+    bottom: 25%;
+    animation-delay: 2.5s;
+}
+
+
+.scene2-background span:nth-child(4) {
+    right: 12%;
+    bottom: 18%;
+    animation-delay: 4s;
+}
+
+
+.scene2-background span:nth-child(5) {
+    left: 50%;
+    top: 12%;
+    animation-delay: 3s;
+}
+
+
+@keyframes birdFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            translateY(-18px)
+            rotate(3deg);
+    }
+
+}
+
+
+/* ستاره */
+
+.birthday-symbol {
+
+    font-size: 32px;
+
+    color: #e9a8bd;
+
+    margin-bottom: 18px;
+
+    animation:
+        symbolFloat 2s ease-in-out infinite;
+
+}
+
+
+@keyframes symbolFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+}
+
+
+/* عنوان */
+
+.birthday-title {
+
+    font-size: 42px;
+
+    color: #df6095;
+
+    margin-bottom: 10px;
+
+    animation:
+        titleAppear .9s ease both;
+
+}
+
+
+.birthday-name {
+
+    font-size: 34px;
+
+    color: #c94d80;
+
+    margin-bottom: 22px;
+
+    animation:
+        titleAppear 1.1s ease both;
+
+    animation-delay: .15s;
+
+}
+
+
+@keyframes titleAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(20px)
+            scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* خط ظریف */
+
+.birthday-line {
+
+    width: 70px;
+
+    height: 2px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #e99ab8,
+            transparent
+        );
+
+    margin-bottom: 22px;
+
+}
+
+
+.birthday-small-text {
+
+    font-size: 16px;
+
+    color: #9d7183;
+
+    margin-bottom: 12px;
+
+}
+
+
+/* =====================================================
+   دکمه‌های صفحات
+   ===================================================== */
+
+.story-button {
+
+    border: none;
+
+    min-width: 145px;
+
+    padding: 14px 28px;
+
+    margin-top: 22px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f58db6,
+            #dc5b91
+        );
+
+    color: #fff;
+
+    font-size: 16px;
+
+    font-family: inherit;
+
+    box-shadow:
+        0 10px 25px rgba(220, 91, 145, .22);
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+.story-button:active {
+
+    transform: scale(.94);
+
+    box-shadow:
+        0 5px 12px rgba(220, 91, 145, .18);
+
+}
+
+
+/* =====================================================
+   SCENE 3
+   ===================================================== */
+
+#scene3 {
+
+    background:
+        radial-gradient(
+            circle at top,
+            #ffffff 0%,
+            #fff7fb 50%,
+            #ffe9f2 100%
+        );
+
+}
+
+
+.scene3-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.letter-decoration {
+
+    font-size: 26px;
+
+    color: #dfa0b9;
+
+    margin-bottom: 25px;
+
+    animation:
+        letterAppear 1s ease both;
+
+}
+
+
+.message {
+
+    color: #654b58;
+
+    line-height: 2.1;
+
+}
+
+
+.message-one {
+
+    font-size: 29px;
+
+    color: #d65d8e;
+
+    margin-bottom: 15px;
+
+    animation:
+        messageAppear .8s ease both;
+
+}
+
+
+.message-two {
+
+    font-size: 20px;
+
+    margin-bottom: 15px;
+
+    animation:
+        messageAppear .9s ease both;
+
+    animation-delay: .3s;
+
+}
+
+
+.message-three {
+
+    max-width: 330px;
+
+    font-size: 19px;
+
+    margin-bottom: 10px;
+
+    animation:
+        messageAppear 1s ease both;
+
+    animation-delay: .7s;
+
+}
+
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes letterAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+.tiny-heart {
+
+    color: #e89ab7;
+
+    font-size: 25px;
+
+    margin-top: 10px;
+
+}
+
+
+/* =====================================================
+   SCENE 4
+   ===================================================== */
+
+#scene4 {
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #ffffff 0%,
+            #fff5fa 50%,
+            #ffe5ef 100%
+        );
+
+}
+
+
+.scene4-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.surprise-label {
+
+    font-size: 18px;
+
+    color: #a86a82;
+
+    margin-bottom: 5px;
+
+}
+
+
+.surprise-title {
+
+    font-size: 31px;
+
+    color: #d95b8d;
+
+    margin-bottom: 10px;
+
+}
+
+
+.surprise-text {
+
+    font-size: 17px;
+
+    color: #795665;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* =====================================================
+   کارت عکس
+   ===================================================== */
+
+.photo-card {
+
+    position: relative;
+
+    width: min(82vw, 320px);
+
+    height: min(55vh, 330px);
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background: #fff;
+
+    padding: 7px;
+
+    box-shadow:
+        0 18px 45px rgba(160, 75, 110, .20);
+
+    transform:
+        rotate(-1deg);
+
+    animation:
+        photoAppear .8s cubic-bezier(.2,.8,.2,1) both;
+
+}
+
+
+.photo-card img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 19px;
+
+}
+
+
+@keyframes photoAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(25px)
+            scale(.92)
+            rotate(-3deg);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(-1deg);
+    }
+
+}
+
+
+/* انعکاس نور روی عکس */
+
+.photo-shine {
+
+    position: absolute;
+
+    top: -100%;
+
+    left: -70%;
+
+    width: 50%;
+
+    height: 300%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
+
+    transform: rotate(20deg);
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    animation:
+        photoShine 4s ease-in-out infinite;
+
+}
+
+
+@keyframes photoShine {
+
+    0%,
+    55% {
+        left: -70%;
+    }
+
+    75%,
+    100% {
+        left: 140%;
+    }
+
+}
+
+
+.surprise-button {
+
+    margin-top: 28px;
+
+}
+
+
+/* =====================================================
+   SCENE 5
+   ===================================================== */
+
+#scene5 {
+
+    background:
+        radial-gradient(
+            circle at center,
+            #ffffff 0%,
+            #fff5f9 48%,
+            #ffe3ef 100%
+        );
+
+}
+
+
+.scene5-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.fake-surprise {
+
+    font-size: 35px;
+
+    margin-bottom: 8px;
+
+    animation:
+        jokeBounce 1.5s ease-in-out infinite;
+
+}
+
+
+@keyframes jokeBounce {
+
+    0%,
+    100% {
+        transform: rotate(-5deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(5deg) translateY(-8px);
+    }
+
+}
+
+
+.joke-title {
+
+    font-size: 32px;
+
+    color: #dc5b91;
+
+    margin-bottom: 8px;
+
+}
+
+
+.joke-subtitle {
+
+    font-size: 16px;
+
+    color: #8e6877;
+
+    margin-bottom: 15px;
+
+}
+
+
+.joke-card {
+
+    transform:
+        rotate(1deg);
+
+}
+
+
+.joke-button {
+
+    margin-top: 28px;
+
+}
+
+
+/* =====================================================
+   موبایل کوچک
+   ===================================================== */
+
+@media (max-width: 380px) {
+
+    .birthday-title {
+        font-size: 36px;
+    }
+
+    .birthday-name {
+        font-size: 30px;
+    }
+
+    .message-two {
+        font-size: 18px;
+    }
+
+    .message-three {
+        font-size: 17px;
+    }
+
+    .photo-card {
+        width: 78vw;
+        height: 270px;
+    }
+
+}
