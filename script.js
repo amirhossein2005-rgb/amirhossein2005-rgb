@@ -26,6 +26,8 @@ function showScene(number) {
 
         currentScene = number;
 
+        window.scrollTo(0, 0);
+
     }
 
 }
@@ -57,22 +59,20 @@ function blowCandle() {
         document.getElementById("particles");
 
 
-    /* خاموش شدن شعله */
-
-    flame.classList.add("off");
-
-
-    /* نمایش دود */
-
-    smoke.classList.add("show");
+    if (flame) {
+        flame.classList.add("off");
+    }
 
 
-    /* پخش شدن ذرات */
+    if (smoke) {
+        smoke.classList.add("show");
+    }
 
-    particles.classList.add("show");
 
+    if (particles) {
+        particles.classList.add("show");
+    }
 
-    /* رفتن به صفحه بعد */
 
     setTimeout(() => {
 
@@ -84,7 +84,7 @@ function blowCandle() {
 
 
 /* =========================
-   رفتن به Scene بعد
+   رفتن به صفحه بعد
    ========================= */
 
 function nextScene(number) {
@@ -95,7 +95,7 @@ function nextScene(number) {
 
 
 /* =========================
-   پخش / توقف آهنگ
+   پخش آهنگ
    ========================= */
 
 function playMusic() {
@@ -106,6 +106,11 @@ function playMusic() {
 
     const button =
         document.getElementById("musicButton");
+
+
+    if (!music || !button) {
+        return;
+    }
 
 
     if (music.paused) {
@@ -126,10 +131,11 @@ function playMusic() {
 
             });
 
-    } else {
+    }
+
+    else {
 
         music.pause();
-
 
         button.innerHTML =
             "🎧 بزن گوش کنم";
@@ -140,7 +146,7 @@ function playMusic() {
 
 
 /* =========================
-   شروع دوباره سایت
+   شروع دوباره
    ========================= */
 
 function restartSite() {
@@ -158,8 +164,6 @@ function restartSite() {
     }
 
 
-    /* برگرداندن شمع */
-
     const flame =
         document.getElementById("flame");
 
@@ -170,8 +174,6 @@ function restartSite() {
 
     }
 
-
-    /* حذف دود */
 
     const smoke =
         document.getElementById("smoke");
@@ -184,8 +186,6 @@ function restartSite() {
     }
 
 
-    /* حذف ذرات */
-
     const particles =
         document.getElementById("particles");
 
@@ -197,26 +197,20 @@ function restartSite() {
     }
 
 
-    /* اجازه خاموش کردن دوباره */
-
-    candleBlown = false;
-
-
-    /* ریست دکمه آهنگ */
-
-    const button =
+    const musicButton =
         document.getElementById("musicButton");
 
 
-    if (button) {
+    if (musicButton) {
 
-        button.innerHTML =
+        musicButton.innerHTML =
             "🎧 بزن گوش کنم";
 
     }
 
 
-    /* بازگشت به اول */
+    candleBlown = false;
+
 
     showScene(1);
 
