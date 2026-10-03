@@ -1,3 +1,7 @@
+/* =========================================================
+   RESET
+   ========================================================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,326 +11,1580 @@
 html,
 body {
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    min-height: 100%;
 }
 
 body {
     font-family: Tahoma, Arial, sans-serif;
-    background: #fff5fa;
-    color: #5d4050;
+    background: #fff7fa;
+    color: #5d4a52;
+    overflow: hidden;
     -webkit-tap-highlight-color: transparent;
 }
 
+button {
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
 #app {
     width: 100%;
+    height: 100vh;
     height: 100dvh;
+    position: relative;
+    overflow: hidden;
 }
+
+
+/* =========================================================
+   SCENES
+   ========================================================= */
 
 .scene {
     position: absolute;
     inset: 0;
 
     width: 100%;
-    height: 100dvh;
+    height: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: none;
 
-    padding: 25px;
-
-    text-align: center;
+    overflow: hidden;
 
     background:
         radial-gradient(
-            circle at top,
+            circle at 50% 35%,
             #ffffff 0%,
-            #fff5fa 45%,
-            #ffe7f2 100%
+            #fffafd 38%,
+            #fff0f6 100%
         );
-
-    opacity: 0;
-    visibility: hidden;
-
-    transform: scale(1.03);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease,
-        visibility 0.8s;
 }
 
 .scene.active {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
+    display: block;
 }
 
 .scene-content {
+    position: relative;
+    z-index: 10;
+
     width: 100%;
-    max-width: 430px;
-    position: relative;
-    z-index: 5;
-}
-
-.instruction {
-    font-size: 18px;
-    margin-bottom: 45px;
-    color: #9b607d;
-}
-
-.cake {
-    position: relative;
-    width: 210px;
-    height: 230px;
-    margin: auto;
-}
-
-.cake-body {
-    position: absolute;
-    bottom: 0;
-    left: 5px;
-
-    width: 200px;
-    height: 120px;
-
-    border-radius: 25px 25px 35px 35px;
-
-    background: linear-gradient(
-        #ffb6d2,
-        #ff91bb
-    );
+    height: 100%;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    font-size: 75px;
+    padding: 30px 20px;
 }
 
-.cake-top {
-    position: absolute;
 
-    bottom: 95px;
-    left: 20px;
+/* =========================================================
+   SCENE 1
+   ========================================================= */
 
-    width: 170px;
-    height: 55px;
-
-    background: #fff;
-    border-radius: 50%;
-
-    z-index: 2;
+.scene1 {
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #ffffff 0%,
+            #fffafd 45%,
+            #fff0f6 100%
+        );
 }
 
-.candle {
-    position: absolute;
 
-    width: 15px;
-    height: 75px;
-
-    background: #fff;
-    border-radius: 8px;
-
-    bottom: 135px;
-    left: 98px;
-
-    z-index: 4;
-}
-
-.flame {
-    position: absolute;
-
-    bottom: 205px;
-    left: 87px;
-
-    font-size: 35px;
-
-    z-index: 10;
-
-    cursor: pointer;
-
-    animation: flame 0.8s infinite alternate;
-}
-
-@keyframes flame {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(1.12);
-    }
-}
-
-.flame.off {
-    opacity: 0;
-    transform: scale(0.2);
-    transition: 0.4s;
-}
+/* ---------- Birds ---------- */
 
 .birds {
     position: absolute;
     inset: 0;
 
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
 
     pointer-events: none;
+    z-index: 2;
 }
 
 .birds span {
     position: absolute;
 
-    font-size: 27px;
+    font-size: 30px;
 
-    animation: fly linear infinite;
+    opacity: 0.75;
+
+    filter: drop-shadow(
+        0 3px 5px rgba(100, 70, 80, 0.12)
+    );
+
+    animation:
+        birdFloat 5s ease-in-out infinite;
 }
 
 .birds span:nth-child(1) {
-    top: 15%;
-    left: -15%;
-    animation-duration: 9s;
+    top: 18%;
+    left: 61%;
 }
 
 .birds span:nth-child(2) {
-    top: 28%;
-    left: -20%;
-    animation-duration: 12s;
+    top: 31%;
+    left: 70%;
+    animation-delay: 0.8s;
 }
 
 .birds span:nth-child(3) {
-    top: 45%;
-    left: -10%;
-    animation-duration: 10s;
+    top: 48%;
+    left: 23%;
+    animation-delay: 1.3s;
 }
 
 .birds span:nth-child(4) {
     top: 65%;
-    left: -20%;
-    animation-duration: 14s;
+    left: 19%;
+    animation-delay: 2s;
 }
 
 .birds span:nth-child(5) {
-    top: 75%;
-    left: -10%;
-    animation-duration: 11s;
+    top: 56%;
+    left: 73%;
+    animation-delay: 1s;
 }
 
 .birds span:nth-child(6) {
-    top: 35%;
-    left: -30%;
-    animation-duration: 15s;
+    top: 22%;
+    left: 25%;
+    animation-delay: 2.5s;
 }
 
-@keyframes fly {
-    0% {
-        transform: translateX(0) translateY(0);
+@keyframes birdFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-3deg);
     }
 
     50% {
-        transform: translateX(60vw) translateY(-25px);
+        transform: translateY(-12px) rotate(3deg);
+    }
+}
+
+
+/* ---------- Scene 1 Content ---------- */
+
+.scene1-content {
+    justify-content: flex-start;
+    padding-top: 17vh;
+}
+
+
+/* ---------- Text ---------- */
+
+.welcome-text {
+    position: relative;
+    z-index: 20;
+
+    text-align: center;
+
+    margin-bottom: 65px;
+}
+
+.wish-text {
+    font-size: clamp(28px, 8vw, 40px);
+    font-weight: bold;
+
+    color: #c9578d;
+
+    margin-bottom: 22px;
+
+    text-shadow:
+        0 3px 12px rgba(201, 87, 141, 0.12);
+}
+
+.instruction {
+    font-size: clamp(17px, 4.5vw, 23px);
+
+    color: #927782;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CAKE
+   ========================================================= */
+
+.cake {
+    position: relative;
+
+    width: min(330px, 82vw);
+    height: 310px;
+
+    flex-shrink: 0;
+
+    z-index: 15;
+}
+
+
+/* =========================================================
+   CANDLE
+   ========================================================= */
+
+.candle {
+    position: absolute;
+
+    width: 28px;
+    height: 105px;
+
+    left: 50%;
+    top: 0;
+
+    transform: translateX(-50%);
+
+    z-index: 50;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            #ffffff 0px,
+            #ffffff 8px,
+            #f5a9c8 8px,
+            #f5a9c8 15px
+        );
+
+    border-radius: 14px;
+
+    box-shadow:
+        inset 3px 0 5px rgba(255, 255, 255, 0.8),
+        inset -3px 0 5px rgba(200, 100, 140, 0.12),
+        0 5px 12px rgba(160, 80, 110, 0.12);
+}
+
+
+/* ---------- Candle decoration ---------- */
+
+.candle-decoration {
+    position: absolute;
+
+    width: 4px;
+    height: 13px;
+
+    left: 50%;
+    top: -9px;
+
+    transform: translateX(-50%);
+
+    background: #514048;
+
+    border-radius: 3px;
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   FLAME
+   ========================================================= */
+
+/*
+   خیلی مهم:
+   شعله داخل .candle قرار دارد.
+   بنابراین موقعیتش مستقیماً نسبت به خود شمع محاسبه می‌شود.
+*/
+
+.candle .flame {
+    position: absolute;
+
+    width: 28px;
+    height: 42px;
+
+    left: 50%;
+    top: -43px;
+
+    transform: translateX(-50%);
+
+    z-index: 100;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 70%,
+            #fff8a0 0%,
+            #ffd83d 35%,
+            #ff9f00 68%,
+            rgba(255, 150, 0, 0) 70%
+        );
+
+    border-radius:
+        50% 50%
+        50% 50% /
+        65% 65%
+        35% 35%;
+
+    filter:
+        drop-shadow(
+            0 0 12px rgba(255, 177, 30, 0.75)
+        );
+
+    animation: flameMove 0.8s ease-in-out infinite alternate;
+}
+
+.flame-inner {
+    position: absolute;
+
+    width: 11px;
+    height: 22px;
+
+    left: 50%;
+    bottom: 5px;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            #fffef0 0%,
+            #fff6a0 65%,
+            rgba(255, 255, 255, 0) 70%
+        );
+
+    border-radius: 50% 50% 45% 45%;
+
+    filter: blur(0.3px);
+}
+
+@keyframes flameMove {
+
+    0% {
+        transform:
+            translateX(-50%)
+            scale(1)
+            rotate(-2deg);
     }
 
     100% {
-        transform: translateX(125vw) translateY(20px);
+        transform:
+            translateX(-50%)
+            scale(1.06)
+            rotate(2deg);
     }
 }
 
-h1 {
-    font-size: 35px;
-    color: #e65b92;
 
-    margin-bottom: 15px;
+/* وقتی شمع خاموش شد */
+
+.flame.off {
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        scale(0.3);
+
+    pointer-events: none;
+
+    animation: flameOff 0.35s ease forwards;
 }
 
-h2 {
-    font-size: 30px;
-    color: #c64d7e;
+@keyframes flameOff {
+
+    from {
+        opacity: 1;
+        transform:
+            translateX(-50%)
+            scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform:
+            translateX(-50%)
+            translateY(-8px)
+            scale(0.2);
+    }
 }
 
-.small-birds {
+
+/* ---------- Flame glow ---------- */
+
+.flame-glow {
+    position: absolute;
+
+    width: 80px;
+    height: 80px;
+
+    left: 50%;
+    top: -25px;
+
+    transform: translateX(-50%);
+
+    z-index: 40;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 192, 52, 0.25) 0%,
+            rgba(255, 192, 52, 0.08) 40%,
+            rgba(255, 192, 52, 0) 70%
+        );
+
+    pointer-events: none;
+
+    animation: glowPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+
+    from {
+        opacity: 0.6;
+        transform:
+            translateX(-50%)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateX(-50%)
+            scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   SMOKE
+   ========================================================= */
+
+.smoke {
+    position: absolute;
+
+    width: 70px;
+    height: 80px;
+
+    left: 50%;
+    top: -55px;
+
+    transform: translateX(-50%);
+
+    z-index: 90;
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+.smoke.show {
+    opacity: 1;
+}
+
+.smoke span {
+    position: absolute;
+
+    width: 13px;
+    height: 25px;
+
+    background: rgba(170, 160, 170, 0.25);
+
+    border-radius: 50%;
+
+    filter: blur(4px);
+
+    opacity: 0;
+
+    animation: smokeRise 2s ease-out forwards;
+}
+
+.smoke span:nth-child(1) {
+    left: 30px;
+    top: 20px;
+}
+
+.smoke span:nth-child(2) {
+    left: 20px;
+    top: 5px;
+    animation-delay: 0.2s;
+}
+
+.smoke span:nth-child(3) {
+    left: 39px;
+    top: -8px;
+    animation-delay: 0.4s;
+}
+
+@keyframes smokeRise {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(10px)
+            scale(0.7);
+    }
+
+    30% {
+        opacity: 0.55;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(-55px)
+            translateX(8px)
+            scale(1.5);
+    }
+}
+
+
+/* =========================================================
+   CAKE BODY
+   ========================================================= */
+
+.cake-layer {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 285px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #f7a5c8,
+            #f08db8
+        );
+
+    box-shadow:
+        0 12px 20px rgba(170, 90, 120, 0.13);
+}
+
+.cake-layer-top {
+    top: 150px;
+
+    height: 75px;
+
+    border-radius:
+        18px 18px 8px 8px;
+
+    z-index: 10;
+}
+
+.cake-layer-bottom {
+    top: 215px;
+
+    height: 82px;
+
+    border-radius:
+        10px 10px 28px 28px;
+
+    z-index: 9;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ef8eb8,
+            #e978aa
+        );
+}
+
+
+/* ---------- Cream top ---------- */
+
+.cake-cream-top {
+    position: absolute;
+
+    width: 295px;
+    height: 42px;
+
+    left: 50%;
+    top: 128px;
+
+    transform: translateX(-50%);
+
+    background: #fff;
+
+    border-radius: 50%;
+
+    z-index: 20;
+
+    box-shadow:
+        0 4px 10px rgba(180, 110, 140, 0.12);
+}
+
+.cake-cream-top span {
+    position: absolute;
+
+    width: 39px;
+    height: 39px;
+
+    top: 22px;
+
+    background: #fff;
+
+    border-radius: 50%;
+}
+
+.cake-cream-top span:nth-child(1) {
+    left: 12px;
+}
+
+.cake-cream-top span:nth-child(2) {
+    left: 65px;
+}
+
+.cake-cream-top span:nth-child(3) {
+    left: 118px;
+}
+
+.cake-cream-top span:nth-child(4) {
+    left: 171px;
+}
+
+.cake-cream-top span:nth-child(5) {
+    left: 224px;
+}
+
+
+/* ---------- Cake drip ---------- */
+
+.cake-drip {
+    position: absolute;
+
+    width: 245px;
+    height: 12px;
+
+    left: 50%;
+    top: 18px;
+
+    transform: translateX(-50%);
+
+    background: rgba(255, 255, 255, 0.9);
+
+    border-radius: 0 0 15px 15px;
+}
+
+
+/* ---------- Cake stripe ---------- */
+
+.cake-stripe {
+    position: absolute;
+
+    width: 100%;
+    height: 13px;
+
+    left: 0;
+    top: 38px;
+
+    background: rgba(255, 205, 225, 0.65);
+}
+
+
+/* ---------- Sprinkles ---------- */
+
+.cake-sprinkles {
+    position: absolute;
+
+    left: 50%;
+    top: 190px;
+
+    width: 250px;
+    height: 90px;
+
+    transform: translateX(-50%);
+
+    z-index: 25;
+
+    pointer-events: none;
+}
+
+.cake-sprinkles span {
+    position: absolute;
+
+    width: 5px;
+    height: 13px;
+
+    border-radius: 4px;
+
+    background: #ffffff;
+}
+
+.cake-sprinkles span:nth-child(1) {
+    left: 25px;
+    top: 15px;
+    transform: rotate(20deg);
+}
+
+.cake-sprinkles span:nth-child(2) {
+    left: 60px;
+    top: 38px;
+    transform: rotate(-20deg);
+}
+
+.cake-sprinkles span:nth-child(3) {
+    left: 100px;
+    top: 18px;
+    transform: rotate(15deg);
+}
+
+.cake-sprinkles span:nth-child(4) {
+    left: 140px;
+    top: 43px;
+    transform: rotate(-15deg);
+}
+
+.cake-sprinkles span:nth-child(5) {
+    left: 175px;
+    top: 17px;
+    transform: rotate(20deg);
+}
+
+.cake-sprinkles span:nth-child(6) {
+    left: 205px;
+    top: 44px;
+    transform: rotate(-20deg);
+}
+
+.cake-sprinkles span:nth-child(7) {
+    left: 85px;
+    top: 65px;
+    transform: rotate(15deg);
+}
+
+.cake-sprinkles span:nth-child(8) {
+    left: 160px;
+    top: 70px;
+    transform: rotate(-15deg);
+}
+
+
+/* ---------- Plate ---------- */
+
+.cake-plate {
+    position: absolute;
+
+    width: 330px;
+    height: 45px;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            #ffffff 0%,
+            #fffafd 60%,
+            #f7edf2 100%
+        );
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 10px 20px rgba(160, 100, 130, 0.12);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   PARTICLES
+   ========================================================= */
+
+.particles {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    opacity: 0;
+}
+
+.particles.show {
+    opacity: 1;
+}
+
+.particles span {
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #f4a8c6;
+
+    opacity: 0;
+}
+
+.particles.show span {
+    animation: particlePop 1.2s ease-out forwards;
+}
+
+.particles span:nth-child(1) {
+    left: 35%;
+    top: 48%;
+}
+
+.particles span:nth-child(2) {
+    left: 45%;
+    top: 45%;
+    animation-delay: 0.1s;
+}
+
+.particles span:nth-child(3) {
+    left: 55%;
+    top: 47%;
+    animation-delay: 0.2s;
+}
+
+.particles span:nth-child(4) {
+    left: 65%;
+    top: 44%;
+    animation-delay: 0.3s;
+}
+
+.particles span:nth-child(5) {
+    left: 40%;
+    top: 52%;
+    animation-delay: 0.4s;
+}
+
+.particles span:nth-child(6) {
+    left: 60%;
+    top: 52%;
+    animation-delay: 0.5s;
+}
+
+.particles span:nth-child(7) {
+    left: 48%;
+    top: 40%;
+    animation-delay: 0.6s;
+}
+
+.particles span:nth-child(8) {
+    left: 52%;
+    top: 55%;
+    animation-delay: 0.7s;
+}
+
+.particles span:nth-child(9) {
+    left: 30%;
+    top: 50%;
+    animation-delay: 0.8s;
+}
+
+.particles span:nth-child(10) {
+    left: 70%;
+    top: 50%;
+    animation-delay: 0.9s;
+}
+
+@keyframes particlePop {
+
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(0.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(
+                calc((var(--x, 1) - 0.5) * 150px),
+                -100px
+            )
+            scale(1.4);
+    }
+}
+
+
+/* =========================================================
+   GENERAL BUTTON
+   ========================================================= */
+
+.story-button {
+    border: none;
+
+    padding: 14px 28px;
+
+    min-width: 150px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d8669b,
+            #c65088
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(190, 75, 125, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.story-button:active {
+    transform: scale(0.95);
+
+    box-shadow:
+        0 4px 10px rgba(190, 75, 125, 0.2);
+}
+
+
+/* =========================================================
+   SCENE 2
+   ========================================================= */
+
+.scene2-background {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.scene2-background span {
+    position: absolute;
+
+    font-size: 27px;
+
+    opacity: 0.7;
+
+    animation:
+        birdFloat 4s ease-in-out infinite;
+}
+
+.scene2-background span:nth-child(1) {
+    top: 15%;
+    left: 15%;
+}
+
+.scene2-background span:nth-child(2) {
+    top: 25%;
+    right: 15%;
+}
+
+.scene2-background span:nth-child(3) {
+    top: 60%;
+    left: 10%;
+}
+
+.scene2-background span:nth-child(4) {
+    top: 70%;
+    right: 12%;
+}
+
+.scene2-background span:nth-child(5) {
+    top: 42%;
+    right: 7%;
+}
+
+.scene2-content {
+    text-align: center;
+}
+
+.birthday-symbol {
+    font-size: 38px;
+
+    margin-bottom: 18px;
+
+    animation: softPulse 2s infinite;
+}
+
+@keyframes softPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+.birthday-title {
+    font-size: clamp(34px, 10vw, 48px);
+
+    color: #c65389;
+
+    margin-bottom: 12px;
+}
+
+.birthday-name {
+    font-size: clamp(26px, 7vw, 36px);
+
+    color: #df769f;
+
+    margin-bottom: 20px;
+}
+
+.birthday-line {
+    width: 70px;
+    height: 2px;
+
+    background: #e6a0bb;
+
+    margin: 0 auto 22px;
+}
+
+.birthday-small-text {
+    color: #927782;
+
+    font-size: 16px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   SCENE 3
+   ========================================================= */
+
+.scene3-content {
+    text-align: center;
+}
+
+.letter-decoration {
     font-size: 35px;
+
+    color: #d879a0;
+
     margin-bottom: 35px;
 }
 
 .message {
-    font-size: 21px;
+    opacity: 0;
+
+    color: #745b65;
+
     line-height: 2;
+
+    animation: messageAppear 0.8s ease forwards;
+}
+
+.message-one {
+    font-size: 30px;
+    animation-delay: 0.2s;
+}
+
+.message-two {
+    font-size: 19px;
+    margin-top: 18px;
+    animation-delay: 0.9s;
+}
+
+.message-three {
+    font-size: 18px;
+    margin-top: 15px;
+    animation-delay: 1.6s;
+}
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tiny-heart {
+    font-size: 28px;
+
+    color: #d86598;
+
+    margin: 25px 0 35px;
+}
+
+
+/* =========================================================
+   SCENE 4
+   ========================================================= */
+
+.scene4-content,
+.scene5-content {
+    text-align: center;
+}
+
+.surprise-label {
+    color: #c96791;
+
+    font-size: 17px;
+
+    margin-bottom: 10px;
+}
+
+.surprise-title {
+    color: #b94e82;
+
+    font-size: 29px;
+
+    margin-bottom: 12px;
+}
+
+.surprise-text {
+    color: #806873;
 
     margin-bottom: 25px;
 }
 
-.emotional {
-    font-size: 20px;
-    line-height: 2.2;
+.photo-card {
+    position: relative;
 
-    margin-bottom: 30px;
-}
+    width: min(280px, 75vw);
 
-button {
-    border: none;
+    padding: 8px;
 
-    background: linear-gradient(
-        135deg,
-        #ff8fbb,
-        #e95c91
-    );
+    background: white;
 
-    color: white;
-
-    font-size: 17px;
-
-    padding: 15px 28px;
-
-    border-radius: 50px;
-
-    margin-top: 20px;
+    border-radius: 18px;
 
     box-shadow:
-        0 10px 25px rgba(230, 91, 146, 0.25);
+        0 15px 35px rgba(100, 60, 80, 0.16);
 
-    cursor: pointer;
+    overflow: hidden;
 
-    transition: transform 0.2s;
+    margin-bottom: 25px;
 }
 
-button:active {
-    transform: scale(0.94);
-}
-
-.joke-image,
-.music-image {
+.photo-card img {
     width: 100%;
-    max-width: 300px;
-    height: 220px;
 
-    margin: 25px auto;
+    border-radius: 12px;
+}
+
+.photo-shine {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 30%,
+            rgba(255,255,255,0.35) 50%,
+            transparent 70%
+        );
+
+    transform: translateX(-100%);
+
+    animation: shine 4s infinite;
+}
+
+@keyframes shine {
+
+    0% {
+        transform: translateX(-100%);
+    }
+
+    35%,
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+/* =========================================================
+   SCENE 5
+   ========================================================= */
+
+.fake-surprise {
+    font-size: 50px;
+
+    margin-bottom: 15px;
+}
+
+.joke-title {
+    font-size: 30px;
+
+    color: #c45487;
+
+    margin-bottom: 10px;
+}
+
+.joke-subtitle {
+    color: #806873;
+
+    margin-bottom: 20px;
+}
+
+.joke-card {
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   SCENE 6 - MUSIC
+   ========================================================= */
+
+.music-scene {
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #ffffff 0%,
+            #fff9fc 45%,
+            #fceef5 100%
+        );
+}
+
+.music-background {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.music-background span {
+    position: absolute;
+
+    color: #e4a0bc;
+
+    font-size: 30px;
+
+    opacity: 0.45;
+
+    animation:
+        musicFloat 4s ease-in-out infinite;
+}
+
+.music-background span:nth-child(1) {
+    top: 15%;
+    left: 15%;
+}
+
+.music-background span:nth-child(2) {
+    top: 25%;
+    right: 18%;
+}
+
+.music-background span:nth-child(3) {
+    top: 55%;
+    left: 10%;
+}
+
+.music-background span:nth-child(4) {
+    top: 68%;
+    right: 12%;
+}
+
+.music-background span:nth-child(5) {
+    top: 40%;
+    left: 80%;
+}
+
+.music-background span:nth-child(6) {
+    top: 75%;
+    left: 25%;
+}
+
+@keyframes musicFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+.music-headphone {
+    font-size: 48px;
+
+    margin-bottom: 15px;
+}
+
+.music-intro {
+    color: #c96691;
+
+    margin-bottom: 10px;
+}
+
+.music-title {
+    text-align: center;
+
+    color: #bd4f83;
+
+    font-size: clamp(22px, 6vw, 30px);
+
+    margin-bottom: 25px;
+}
+
+.music-card {
+    position: relative;
+
+    width: min(330px, 88vw);
+
+    padding: 18px;
+
+    background: rgba(255,255,255,0.92);
 
     border-radius: 25px;
 
-    background: #ffe1ed;
+    box-shadow:
+        0 18px 40px rgba(120, 70, 95, 0.15);
+
+    display: grid;
+
+    grid-template-columns: 70px 1fr 48px;
+
+    gap: 12px;
+
+    align-items: center;
+}
+
+.music-photo {
+    width: 70px;
+    height: 70px;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+}
+
+.music-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.music-info {
+    min-width: 0;
+}
+
+.music-label {
+    color: #755c67;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+.music-equalizer {
+    height: 25px;
 
     display: flex;
+
     align-items: center;
-    justify-content: center;
 
-    color: #b66a89;
+    gap: 4px;
 }
 
-.next-button {
-    display: block;
-    margin: 35px auto 0;
+.music-equalizer span {
+    width: 4px;
+
+    height: 8px;
+
+    background: #d66b99;
+
+    border-radius: 5px;
 }
 
-.final-birds {
-    font-size: 38px;
-    margin-bottom: 35px;
-
-    animation: floating 2s ease-in-out infinite;
+.music-card.playing
+.music-equalizer span {
+    animation: equalizer 0.7s ease-in-out infinite alternate;
 }
 
-@keyframes floating {
+.music-equalizer span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.music-equalizer span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.music-equalizer span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.music-equalizer span:nth-child(5) {
+    animation-delay: 0.15s;
+}
+
+@keyframes equalizer {
+
+    from {
+        height: 7px;
+    }
+
+    to {
+        height: 25px;
+    }
+}
+
+.music-play-button {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #cf6092;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 15px rgba(190, 75, 125, 0.25);
+}
+
+.music-progress {
+    grid-column: 1 / 4;
+
+    width: 100%;
+    height: 6px;
+
+    background: #f0dce5;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-top: 8px;
+}
+
+.music-progress-bar {
+    width: 0%;
+    height: 100%;
+
+    background: #cf6092;
+
+    border-radius: inherit;
+}
+
+.music-time {
+    grid-column: 1 / 4;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #9c818c;
+
+    font-size: 12px;
+}
+
+.music-hint {
+    color: #927782;
+
+    font-size: 14px;
+
+    margin: 20px 0;
+}
+
+.music-next-button {
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   SCENE 7
+   ========================================================= */
+
+.emotional-scene {
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #ffffff 0%,
+            #fff8fb 50%,
+            #fcebf3 100%
+        );
+}
+
+.emotional-background {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.emotional-background span {
+    position: absolute;
+
+    color: #df8aaa;
+
+    opacity: 0.35;
+
+    font-size: 28px;
+
+    animation:
+        emotionalFloat 5s ease-in-out infinite;
+}
+
+.emotional-background span:nth-child(1) {
+    top: 18%;
+    left: 15%;
+}
+
+.emotional-background span:nth-child(2) {
+    top: 30%;
+    right: 15%;
+}
+
+.emotional-background span:nth-child(3) {
+    top: 60%;
+    left: 12%;
+}
+
+.emotional-background span:nth-child(4) {
+    top: 72%;
+    right: 17%;
+}
+
+.emotional-background span:nth-child(5) {
+    top: 45%;
+    right: 8%;
+}
+
+@keyframes emotionalFloat {
+
     0%,
     100% {
         transform: translateY(0);
@@ -337,719 +1595,266 @@ button:active {
     }
 }
 
-@media (max-height: 650px) {
+.emotional-content {
+    text-align: center;
 
-    .instruction {
-        margin-bottom: 20px;
-    }
-
-    .cake {
-        transform: scale(0.8);
-        margin-top: -20px;
-        margin-bottom: -25px;
-    }
-
-    .message {
-        font-size: 18px;
-    }
-
-    .emotional {
-        font-size: 17px;
-    }
-}
-.joke-image img,
-.music-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 25px;
-    display: block;
-}
-/* =====================================================
-   SCENE 1 - BIRTHDAY CAKE
-   ===================================================== */
-
-
-/* محتوای Scene 1 */
-
-.scene1-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding-left: 28px;
+    padding-right: 28px;
 }
 
+.emotional-top-symbol {
+    font-size: 42px;
 
-/* =========================
-   متن بالای کیک
-   ========================= */
+    color: #d86d9a;
 
-.welcome-text {
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
-.wish-text {
-    font-size: 25px;
-    font-weight: 600;
-    color: #d95b91;
-    margin-bottom: 15px;
+.emotional-line {
+    color: #745b65;
 
-    animation: textAppear 1.2s ease both;
+    line-height: 2;
+
+    margin-bottom: 17px;
+
+    opacity: 0;
+
+    animation: emotionalAppear 1s ease forwards;
 }
 
-.scene1-content .instruction {
-    font-size: 16px;
-    color: #a56b85;
-    margin: 0;
-
-    animation: textAppear 1.5s ease both;
+.emotional-line-1 {
+    font-size: 27px;
     animation-delay: 0.3s;
 }
 
+.emotional-line-2 {
+    font-size: 18px;
+    animation-delay: 1s;
+}
 
-@keyframes textAppear {
+.emotional-line-3 {
+    font-size: 17px;
+    animation-delay: 1.8s;
+}
+
+.emotional-line-4 {
+    font-size: 18px;
+    color: #c55889;
+    animation-delay: 2.6s;
+}
+
+@keyframes emotionalAppear {
 
     from {
         opacity: 0;
-        transform: translateY(12px);
+        transform: translateY(15px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
+.emotional-divider {
+    width: 70px;
+    height: 2px;
 
-/* =========================
-   کیک
-   ========================= */
+    background: #e1a0ba;
 
-.cake {
-    position: relative;
-
-    width: 260px;
-    height: 300px;
-
-    margin: 0 auto;
-
-    animation: cakeAppear 1.2s cubic-bezier(.2,.8,.2,1) both;
+    margin: 25px auto;
 }
 
+.final-wish {
+    color: #c45387;
 
-@keyframes cakeAppear {
+    font-size: 22px;
 
-    from {
-        opacity: 0;
-        transform: translateY(30px) scale(.9);
-    }
+    font-weight: bold;
 
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-
+    margin-bottom: 30px;
 }
 
-
-/* =========================
-   بشقاب
-   ========================= */
-
-.cake-plate {
-
-    position: absolute;
-
-    bottom: 10px;
-    left: 10px;
-
-    width: 240px;
-    height: 28px;
-
-    border-radius: 50%;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #fff,
-            #f5dce7
-        );
-
-    box-shadow:
-        0 10px 25px rgba(180, 90, 125, .15);
-
-    z-index: 1;
-
-}
-
-
-/* =========================
-   لایه پایین کیک
-   ========================= */
-
-.cake-layer-bottom {
-
-    position: absolute;
-
-    left: 30px;
-    bottom: 35px;
-
-    width: 200px;
-    height: 100px;
-
-    border-radius: 18px 18px 25px 25px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #ffafd0 0%,
-            #f88db8 100%
-        );
-
-    box-shadow:
-        inset 0 -8px 0 rgba(190, 70, 120, .08),
-        0 12px 20px rgba(180, 80, 120, .12);
-
-    z-index: 3;
-
-}
-
-
-/* =========================
-   لایه بالایی کیک
-   ========================= */
-
-.cake-layer-top {
-
-    position: absolute;
-
-    left: 45px;
-    bottom: 120px;
-
-    width: 170px;
-    height: 70px;
-
-    border-radius: 18px 18px 20px 20px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #ffc5dc,
-            #ff9fc5
-        );
-
-    box-shadow:
-        0 8px 15px rgba(180, 80, 120, .10);
-
-    z-index: 4;
-
-}
-
-
-/* =========================
-   خامه بالای کیک
-   ========================= */
-
-.cake-cream-top {
-
-    position: absolute;
-
-    left: 42px;
-    bottom: 175px;
-
-    width: 176px;
-    height: 38px;
-
-    border-radius: 50%;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #ffffff,
-            #fff2f7
-        );
-
-    box-shadow:
-        0 4px 8px rgba(160, 80, 110, .08);
-
-    z-index: 6;
-
-}
-
-
-/* خامه‌های کوچک */
-
-.cake-cream-top span {
-
-    position: absolute;
-
-    width: 22px;
-    height: 18px;
-
-    border-radius: 50%;
-
-    background: #fff;
-
-    bottom: -8px;
-
-}
-
-
-.cake-cream-top span:nth-child(1) {
-    left: 8px;
-}
-
-.cake-cream-top span:nth-child(2) {
-    left: 42px;
-}
-
-.cake-cream-top span:nth-child(3) {
-    left: 76px;
-}
-
-.cake-cream-top span:nth-child(4) {
-    left: 110px;
-}
-
-.cake-cream-top span:nth-child(5) {
-    left: 144px;
-}
-
-
-/* =========================
-   خامه‌ای که از لبه می‌ریزد
-   ========================= */
-
-.cake-drip {
-
-    position: absolute;
-
-    left: 12px;
-    right: 12px;
-    top: 45px;
-
-    height: 12px;
-
-    background: #fff;
-
-    border-radius: 0 0 15px 15px;
-
-}
-
-
-/* =========================
-   خط تزئینی
-   ========================= */
-
-.cake-stripe {
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-
-    top: 38px;
-
-    height: 8px;
-
-    background: rgba(255,255,255,.35);
-
-}
-
-
-/* =========================
-   شمع
-   ========================= */
-
-.candle {
-
-    position: absolute;
-
-    left: 122px;
-    bottom: 203px;
-
-    width: 16px;
-    height: 72px;
-
-    border-radius: 8px;
-
-    background:
-        repeating-linear-gradient(
-            135deg,
-            #fff,
-            #fff 5px,
-            #f7c8dc 6px,
-            #f7c8dc 9px
-        );
-
-    box-shadow:
-        0 3px 8px rgba(160, 80, 110, .15);
-
-    z-index: 8;
-
-}
-
-
-/* فتیله */
-
-.candle::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 3px;
-    height: 10px;
-
-    background: #5c3c46;
-
-    left: 50%;
-    top: -8px;
-
-    transform: translateX(-50%);
-
-    border-radius: 3px;
-
-}
-
-
-/* =========================
-   شعله
-   ========================= */
-
-.flame {
-
-    position: absolute;
-
-    left: 111px;
-    bottom: 274px;
-
-    width: 38px;
-    height: 52px;
-
-    cursor: pointer;
-
-    z-index: 12;
-
-    transform-origin: center bottom;
-
-    animation:
-        flameMove .7s ease-in-out infinite alternate;
-
-}
-
-
-/* شعله اصلی */
-
-.flame::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 7px;
-    bottom: 0;
-
-    width: 25px;
-    height: 42px;
-
-    border-radius:
-        50% 50% 50% 50% /
-        65% 65% 35% 35%;
-
-    background:
-        linear-gradient(
-            to top,
-            #ff8a00,
-            #ffd43b 60%,
-            #fff4b0
-        );
-
-    transform:
-        rotate(45deg);
-
-    box-shadow:
-        0 0 15px rgba(255, 165, 0, .6),
-        0 0 30px rgba(255, 190, 50, .35);
-
-}
-
-
-/* قسمت داخلی شعله */
-
-.flame-inner {
-
-    position: absolute;
-
-    left: 14px;
-    bottom: 5px;
-
-    width: 12px;
-    height: 24px;
-
-    background: #fff;
-
-    border-radius: 50%;
-
-    transform: rotate(45deg);
-
-    z-index: 2;
-
-}
-
-
-/* حرکت شعله */
-
-@keyframes flameMove {
-
-    0% {
-        transform: rotate(-3deg) scale(1);
-    }
-
-    100% {
-        transform: rotate(3deg) scale(1.08);
-    }
-
-}
-
-
-/* نور اطراف شعله */
-
-.flame-glow {
-
-    position: absolute;
-
-    left: 103px;
-    bottom: 265px;
-
+.emotional-next-button {
     width: 55px;
     height: 55px;
 
-    border-radius: 50%;
-
-    background: rgba(255, 188, 70, .20);
-
-    filter: blur(12px);
-
-    z-index: 7;
-
-    animation: glowPulse 1s ease-in-out infinite alternate;
-
-}
-
-
-@keyframes glowPulse {
-
-    from {
-        transform: scale(.85);
-        opacity: .5;
-    }
-
-    to {
-        transform: scale(1.15);
-        opacity: .9;
-    }
-
-}
-
-
-/* =========================
-   خاموش شدن شعله
-   ========================= */
-
-.flame.off {
-
-    animation: flameOff .5s ease forwards;
-
-    pointer-events: none;
-
-}
-
-
-@keyframes flameOff {
-
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-8px) scale(.15);
-    }
-
-}
-
-
-/* نور هم خاموش شود */
-
-.cake:has(.flame.off) .flame-glow {
-
-    animation: glowOff .5s ease forwards;
-
-}
-
-
-@keyframes glowOff {
-
-    to {
-        opacity: 0;
-        transform: scale(.2);
-    }
-
-}
-
-
-/* =========================
-   دود
-   ========================= */
-
-.smoke {
-
-    position: absolute;
-
-    left: 116px;
-    bottom: 265px;
-
-    width: 35px;
-    height: 70px;
-
-    z-index: 11;
-
-    pointer-events: none;
-
-    opacity: 0;
-
-}
-
-
-.smoke span {
-
-    position: absolute;
-
-    width: 10px;
-    height: 10px;
+    border: none;
 
     border-radius: 50%;
 
-    background: rgba(150, 150, 150, .35);
+    background: white;
 
-    filter: blur(3px);
+    color: #c95b8c;
 
+    font-size: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(150, 80, 110, 0.15);
+
+    cursor: pointer;
 }
 
 
-.smoke span:nth-child(1) {
+/* =========================================================
+   SCENE 8
+   ========================================================= */
 
-    left: 12px;
-    bottom: 0;
+.final-scene {
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #ffffff 0%,
+            #fff8fb 45%,
+            #fbeaf2 100%
+        );
+}
 
+.final-content {
+    text-align: center;
+}
+
+.final-small {
+    color: #9d7b89;
+
+    font-size: 17px;
+
+    margin-bottom: 15px;
+}
+
+.final-title {
+    font-family: Georgia, serif;
+
+    font-size: clamp(38px, 11vw, 58px);
+
+    color: #c45286;
+
+    margin-bottom: 8px;
+}
+
+.final-name {
+    font-family: Georgia, serif;
+
+    font-size: clamp(28px, 8vw, 40px);
+
+    color: #df7ba3;
+
+    margin-bottom: 20px;
+}
+
+.final-line {
+    width: 90px;
+    height: 2px;
+
+    background: #e3a1ba;
+
+    margin: 0 auto 25px;
+}
+
+.final-message {
+    max-width: 330px;
+
+    color: #765e68;
+
+    font-size: 17px;
+
+    line-height: 2;
+
+    margin-bottom: 25px;
+}
+
+.final-made {
+    color: #ae8b98;
+
+    font-size: 13px;
+
+    margin-bottom: 30px;
+}
+
+.restart-button {
+    border: none;
+
+    background: rgba(255,255,255,0.8);
+
+    color: #c45a89;
+
+    padding: 11px 22px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(130, 70, 95, 0.1);
 }
 
 
-.smoke span:nth-child(2) {
+/* ---------- Final birds ---------- */
 
-    left: 20px;
-    bottom: 10px;
-
-}
-
-
-.smoke span:nth-child(3) {
-
-    left: 8px;
-    bottom: 18px;
-
-}
-
-
-.smoke.show {
-
-    opacity: 1;
-
-}
-
-
-.smoke.show span:nth-child(1) {
-
-    animation: smoke1 1.5s ease-out forwards;
-
-}
-
-
-.smoke.show span:nth-child(2) {
-
-    animation: smoke2 1.7s ease-out forwards;
-
-}
-
-
-.smoke.show span:nth-child(3) {
-
-    animation: smoke3 1.4s ease-out forwards;
-
-}
-
-
-@keyframes smoke1 {
-
-    to {
-        transform:
-            translate(-8px, -55px)
-            scale(2);
-
-        opacity: 0;
-    }
-
-}
-
-
-@keyframes smoke2 {
-
-    to {
-        transform:
-            translate(12px, -65px)
-            scale(2.5);
-
-        opacity: 0;
-    }
-
-}
-
-
-@keyframes smoke3 {
-
-    to {
-        transform:
-            translate(-15px, -45px)
-            scale(1.8);
-
-        opacity: 0;
-    }
-
-}
-
-
-/* =========================
-   ذرات نور
-   ========================= */
-
-.particles {
-
+.final-birds {
     position: absolute;
 
     inset: 0;
 
     pointer-events: none;
+}
 
-    opacity: 0;
+.final-birds span {
+    position: absolute;
 
+    font-size: 30px;
+
+    opacity: 0.65;
+
+    animation:
+        finalBird 6s ease-in-out infinite;
+}
+
+.final-birds span:nth-child(1) {
+    top: 20%;
+    left: 15%;
+}
+
+.final-birds span:nth-child(2) {
+    top: 35%;
+    right: 15%;
+
+    animation-delay: 1s;
+}
+
+.final-birds span:nth-child(3) {
+    top: 70%;
+    left: 20%;
+
+    animation-delay: 2s;
+}
+
+@keyframes finalBird {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
 }
 
 
-.particles span {
+/* ---------- Final particles ---------- */
 
+.final-particles {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.final-particles span {
     position: absolute;
 
     width: 5px;
@@ -1057,2188 +1862,174 @@ button:active {
 
     border-radius: 50%;
 
-    background: #ffd477;
+    background: #e7a4bd;
 
-    box-shadow:
-        0 0 10px rgba(255, 200, 90, .8);
-
-}
-
-
-.particles span:nth-child(1) {
-    left: 35%;
-    top: 43%;
-}
-
-.particles span:nth-child(2) {
-    left: 60%;
-    top: 40%;
-}
-
-.particles span:nth-child(3) {
-    left: 42%;
-    top: 50%;
-}
-
-.particles span:nth-child(4) {
-    left: 70%;
-    top: 52%;
-}
-
-.particles span:nth-child(5) {
-    left: 30%;
-    top: 55%;
-}
-
-.particles span:nth-child(6) {
-    left: 55%;
-    top: 45%;
-}
-
-.particles span:nth-child(7) {
-    left: 48%;
-    top: 38%;
-}
-
-.particles span:nth-child(8) {
-    left: 65%;
-    top: 48%;
-}
-
-.particles span:nth-child(9) {
-    left: 38%;
-    top: 47%;
-}
-
-.particles span:nth-child(10) {
-    left: 58%;
-    top: 55%;
-}
-
-
-.particles.show {
-
-    opacity: 1;
-
-}
-
-
-.particles.show span {
-
-    animation: particleBurst 1.2s ease-out forwards;
-
-}
-
-
-@keyframes particleBurst {
-
-    0% {
-
-        transform:
-            translate(0, 0)
-            scale(.2);
-
-        opacity: 0;
-
-    }
-
-    20% {
-
-        opacity: 1;
-
-    }
-
-    100% {
-
-        transform:
-            translate(
-                calc((var(--x, 1) * 80px)),
-                calc((var(--y, -1) * 100px))
-            )
-            scale(0);
-
-        opacity: 0;
-
-    }
-
-}
-
-
-/* مسیرهای مختلف ذرات */
-
-.particles span:nth-child(1) {
-    --x: -1;
-    --y: -1;
-}
-
-.particles span:nth-child(2) {
-    --x: 1;
-    --y: -1;
-}
-
-.particles span:nth-child(3) {
-    --x: -1;
-    --y: 1;
-}
-
-.particles span:nth-child(4) {
-    --x: 1;
-    --y: 1;
-}
-
-.particles span:nth-child(5) {
-    --x: -1;
-    --y: 0;
-}
-
-.particles span:nth-child(6) {
-    --x: 1;
-    --y: 0;
-}
-
-.particles span:nth-child(7) {
-    --x: 0;
-    --y: -1;
-}
-
-.particles span:nth-child(8) {
-    --x: 0;
-    --y: 1;
-}
-
-.particles span:nth-child(9) {
-    --x: -1;
-    --y: -1;
-}
-
-.particles span:nth-child(10) {
-    --x: 1;
-    --y: -1;
-}
-
-
-/* =========================
-   موبایل‌های کوچک
-   ========================= */
-
-@media (max-height: 700px) {
-
-    .wish-text {
-        font-size: 22px;
-    }
-
-    .welcome-text {
-        margin-bottom: 10px;
-    }
-
-    .cake {
-        transform: scale(.85);
-        margin-top: -10px;
-    }
-
-}
-
-
-@media (max-width: 360px) {
-
-    .cake {
-        transform: scale(.8);
-    }
-
-    .wish-text {
-        font-size: 21px;
-    }
-
-}
-/* =====================================================
-   SCENE 2
-   ===================================================== */
-
-#scene2 {
-    background:
-        radial-gradient(
-            circle at 50% 30%,
-            #ffffff 0%,
-            #fff5fa 45%,
-            #ffe5f0 100%
-        );
-}
-
-
-.scene2-content {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-}
-
-
-.scene2-background {
-
-    position: absolute;
-    inset: 0;
-
-    overflow: hidden;
-
-    pointer-events: none;
-
-}
-
-
-.scene2-background span {
-
-    position: absolute;
-
-    font-size: 24px;
-
-    opacity: .45;
-
-    animation: birdFloat 7s ease-in-out infinite;
-
-}
-
-
-.scene2-background span:nth-child(1) {
-    left: 12%;
-    top: 18%;
-    animation-delay: 0s;
-}
-
-
-.scene2-background span:nth-child(2) {
-    right: 15%;
-    top: 28%;
-    animation-delay: 1.5s;
-}
-
-
-.scene2-background span:nth-child(3) {
-    left: 20%;
-    bottom: 25%;
-    animation-delay: 2.5s;
-}
-
-
-.scene2-background span:nth-child(4) {
-    right: 12%;
-    bottom: 18%;
-    animation-delay: 4s;
-}
-
-
-.scene2-background span:nth-child(5) {
-    left: 50%;
-    top: 12%;
-    animation-delay: 3s;
-}
-
-
-@keyframes birdFloat {
-
-    0%,
-    100% {
-        transform:
-            translateY(0)
-            rotate(-3deg);
-    }
-
-    50% {
-        transform:
-            translateY(-18px)
-            rotate(3deg);
-    }
-
-}
-
-
-/* ستاره */
-
-.birthday-symbol {
-
-    font-size: 32px;
-
-    color: #e9a8bd;
-
-    margin-bottom: 18px;
-
-    animation:
-        symbolFloat 2s ease-in-out infinite;
-
-}
-
-
-@keyframes symbolFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-7px);
-    }
-
-}
-
-
-/* عنوان */
-
-.birthday-title {
-
-    font-size: 42px;
-
-    color: #df6095;
-
-    margin-bottom: 10px;
-
-    animation:
-        titleAppear .9s ease both;
-
-}
-
-
-.birthday-name {
-
-    font-size: 34px;
-
-    color: #c94d80;
-
-    margin-bottom: 22px;
-
-    animation:
-        titleAppear 1.1s ease both;
-
-    animation-delay: .15s;
-
-}
-
-
-@keyframes titleAppear {
-
-    from {
-        opacity: 0;
-        transform:
-            translateY(20px)
-            scale(.95);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateY(0)
-            scale(1);
-    }
-
-}
-
-
-/* خط ظریف */
-
-.birthday-line {
-
-    width: 70px;
-
-    height: 2px;
-
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #e99ab8,
-            transparent
-        );
-
-    margin-bottom: 22px;
-
-}
-
-
-.birthday-small-text {
-
-    font-size: 16px;
-
-    color: #9d7183;
-
-    margin-bottom: 12px;
-
-}
-
-
-/* =====================================================
-   دکمه‌های صفحات
-   ===================================================== */
-
-.story-button {
-
-    border: none;
-
-    min-width: 145px;
-
-    padding: 14px 28px;
-
-    margin-top: 22px;
-
-    border-radius: 50px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f58db6,
-            #dc5b91
-        );
-
-    color: #fff;
-
-    font-size: 16px;
-
-    font-family: inherit;
-
-    box-shadow:
-        0 10px 25px rgba(220, 91, 145, .22);
-
-    cursor: pointer;
-
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
-
-}
-
-
-.story-button:active {
-
-    transform: scale(.94);
-
-    box-shadow:
-        0 5px 12px rgba(220, 91, 145, .18);
-
-}
-
-
-/* =====================================================
-   SCENE 3
-   ===================================================== */
-
-#scene3 {
-
-    background:
-        radial-gradient(
-            circle at top,
-            #ffffff 0%,
-            #fff7fb 50%,
-            #ffe9f2 100%
-        );
-
-}
-
-
-.scene3-content {
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-}
-
-
-.letter-decoration {
-
-    font-size: 26px;
-
-    color: #dfa0b9;
-
-    margin-bottom: 25px;
-
-    animation:
-        letterAppear 1s ease both;
-
-}
-
-
-.message {
-
-    color: #654b58;
-
-    line-height: 2.1;
-
-}
-
-
-.message-one {
-
-    font-size: 29px;
-
-    color: #d65d8e;
-
-    margin-bottom: 15px;
-
-    animation:
-        messageAppear .8s ease both;
-
-}
-
-
-.message-two {
-
-    font-size: 20px;
-
-    margin-bottom: 15px;
-
-    animation:
-        messageAppear .9s ease both;
-
-    animation-delay: .3s;
-
-}
-
-
-.message-three {
-
-    max-width: 330px;
-
-    font-size: 19px;
-
-    margin-bottom: 10px;
-
-    animation:
-        messageAppear 1s ease both;
-
-    animation-delay: .7s;
-
-}
-
-
-@keyframes messageAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(18px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-@keyframes letterAppear {
-
-    from {
-        opacity: 0;
-        transform: scale(.7);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-}
-
-
-.tiny-heart {
-
-    color: #e89ab7;
-
-    font-size: 25px;
-
-    margin-top: 10px;
-
-}
-
-
-/* =====================================================
-   SCENE 4
-   ===================================================== */
-
-#scene4 {
-
-    background:
-        radial-gradient(
-            circle at 50% 25%,
-            #ffffff 0%,
-            #fff5fa 50%,
-            #ffe5ef 100%
-        );
-
-}
-
-
-.scene4-content {
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-}
-
-
-.surprise-label {
-
-    font-size: 18px;
-
-    color: #a86a82;
-
-    margin-bottom: 5px;
-
-}
-
-
-.surprise-title {
-
-    font-size: 31px;
-
-    color: #d95b8d;
-
-    margin-bottom: 10px;
-
-}
-
-
-.surprise-text {
-
-    font-size: 17px;
-
-    color: #795665;
-
-    margin-bottom: 15px;
-
-}
-
-
-/* =====================================================
-   کارت عکس
-   ===================================================== */
-
-.photo-card {
-
-    position: relative;
-
-    width: min(82vw, 320px);
-
-    height: min(55vh, 330px);
-
-    overflow: hidden;
-
-    border-radius: 25px;
-
-    background: #fff;
-
-    padding: 7px;
-
-    box-shadow:
-        0 18px 45px rgba(160, 75, 110, .20);
-
-    transform:
-        rotate(-1deg);
-
-    animation:
-        photoAppear .8s cubic-bezier(.2,.8,.2,1) both;
-
-}
-
-
-.photo-card img {
-
-    width: 100%;
-
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    border-radius: 19px;
-
-}
-
-
-@keyframes photoAppear {
-
-    from {
-        opacity: 0;
-        transform:
-            translateY(25px)
-            scale(.92)
-            rotate(-3deg);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateY(0)
-            scale(1)
-            rotate(-1deg);
-    }
-
-}
-
-
-/* انعکاس نور روی عکس */
-
-.photo-shine {
-
-    position: absolute;
-
-    top: -100%;
-
-    left: -70%;
-
-    width: 50%;
-
-    height: 300%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.35),
-            transparent
-        );
-
-    transform: rotate(20deg);
-
-    z-index: 2;
-
-    pointer-events: none;
-
-    animation:
-        photoShine 4s ease-in-out infinite;
-
-}
-
-
-@keyframes photoShine {
-
-    0%,
-    55% {
-        left: -70%;
-    }
-
-    75%,
-    100% {
-        left: 140%;
-    }
-
-}
-
-
-.surprise-button {
-
-    margin-top: 28px;
-
-}
-
-
-/* =====================================================
-   SCENE 5
-   ===================================================== */
-
-#scene5 {
-
-    background:
-        radial-gradient(
-            circle at center,
-            #ffffff 0%,
-            #fff5f9 48%,
-            #ffe3ef 100%
-        );
-
-}
-
-
-.scene5-content {
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-}
-
-
-.fake-surprise {
-
-    font-size: 35px;
-
-    margin-bottom: 8px;
-
-    animation:
-        jokeBounce 1.5s ease-in-out infinite;
-
-}
-
-
-@keyframes jokeBounce {
-
-    0%,
-    100% {
-        transform: rotate(-5deg) translateY(0);
-    }
-
-    50% {
-        transform: rotate(5deg) translateY(-8px);
-    }
-
-}
-
-
-.joke-title {
-
-    font-size: 32px;
-
-    color: #dc5b91;
-
-    margin-bottom: 8px;
-
-}
-
-
-.joke-subtitle {
-
-    font-size: 16px;
-
-    color: #8e6877;
-
-    margin-bottom: 15px;
-
-}
-
-
-.joke-card {
-
-    transform:
-        rotate(1deg);
-
-}
-
-
-.joke-button {
-
-    margin-top: 28px;
-
-}
-
-
-/* =====================================================
-   موبایل کوچک
-   ===================================================== */
-
-@media (max-width: 380px) {
-
-    .birthday-title {
-        font-size: 36px;
-    }
-
-    .birthday-name {
-        font-size: 30px;
-    }
-
-    .message-two {
-        font-size: 18px;
-    }
-
-    .message-three {
-        font-size: 17px;
-    }
-
-    .photo-card {
-        width: 78vw;
-        height: 270px;
-    }
-
-}
-/* =====================================================
-   FINAL DESIGN - SCENE 6 / 7 / 8
-   ===================================================== */
-
-
-/* =====================================================
-   SCENE 6 - MUSIC
-   ===================================================== */
-
-.music-scene {
-
-    background:
-        radial-gradient(
-            circle at 50% 25%,
-            #ffffff 0%,
-            #fff6fa 45%,
-            #ffe5f0 100%
-        );
-
-}
-
-
-.music-content {
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-}
-
-
-.music-background {
-
-    position: absolute;
-
-    inset: 0;
-
-    overflow: hidden;
-
-    pointer-events: none;
-
-}
-
-
-.music-background span {
-
-    position: absolute;
-
-    font-size: 30px;
-
-    color: rgba(214, 91, 142, .18);
-
-    animation:
-        musicFloat 5s ease-in-out infinite;
-
-}
-
-
-.music-background span:nth-child(1) {
-
-    left: 10%;
-    top: 20%;
-
-}
-
-
-.music-background span:nth-child(2) {
-
-    right: 12%;
-    top: 28%;
-
-    animation-delay: 1s;
-
-}
-
-
-.music-background span:nth-child(3) {
-
-    left: 15%;
-    bottom: 25%;
-
-    animation-delay: 2s;
-
-}
-
-
-.music-background span:nth-child(4) {
-
-    right: 17%;
-    bottom: 18%;
-
-    animation-delay: 3s;
-
-}
-
-
-.music-background span:nth-child(5) {
-
-    left: 50%;
-    top: 12%;
-
-    animation-delay: 1.5s;
-
-}
-
-
-@keyframes musicFloat {
-
-    0%,
-    100% {
-
-        transform:
-            translateY(0)
-            rotate(-5deg);
-
-    }
-
-    50% {
-
-        transform:
-            translateY(-20px)
-            rotate(5deg);
-
-    }
-
-}
-
-
-.music-headphone {
-
-    font-size: 42px;
-
-    margin-bottom: 8px;
-
-    animation:
-        headphoneFloat 2s ease-in-out infinite;
-
-}
-
-
-@keyframes headphoneFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-7px);
-    }
-
-}
-
-
-.music-intro {
-
-    font-size: 17px;
-
-    color: #a26a80;
-
-    margin-bottom: 5px;
-
-}
-
-
-.music-title {
-
-    font-size: 25px;
-
-    color: #d85b8e;
-
-    margin-bottom: 20px;
-
-}
-
-
-/* =========================
-   کارت پلیر
-   ========================= */
-
-.music-card {
-
-    position: relative;
-
-    width: min(86vw, 330px);
-
-    padding: 14px;
-
-    border-radius: 28px;
-
-    background:
-        rgba(255,255,255,.78);
-
-    border:
-        1px solid rgba(255,255,255,.9);
-
-    box-shadow:
-        0 20px 50px rgba(175,75,115,.16);
-
-    backdrop-filter: blur(10px);
-
-    -webkit-backdrop-filter: blur(10px);
-
-}
-
-
-/* عکس */
-
-.music-photo {
-
-    width: 100%;
-
-    height: 190px;
-
-    overflow: hidden;
-
-    border-radius: 20px;
-
-}
-
-
-.music-photo img {
-
-    width: 100%;
-
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    transition:
-        transform .6s ease;
-
-}
-
-
-.music-card.playing .music-photo img {
-
-    transform: scale(1.04);
-
-}
-
-
-/* اطلاعات */
-
-.music-info {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    margin-top: 13px;
-
-}
-
-
-.music-label {
-
-    font-size: 15px;
-
-    color: #765563;
-
-}
-
-
-/* اکولایزر */
-
-.music-equalizer {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 3px;
-
-    height: 25px;
-
-}
-
-
-.music-equalizer span {
-
-    width: 3px;
-
-    height: 8px;
-
-    border-radius: 5px;
-
-    background: #df6b99;
-
-}
-
-
-.music-card.playing
-.music-equalizer span {
-
-    animation:
-        equalizer .7s ease-in-out infinite alternate;
-
-}
-
-
-.music-equalizer span:nth-child(1) {
-    animation-delay: .1s;
-}
-
-.music-equalizer span:nth-child(2) {
-    animation-delay: .3s;
-}
-
-.music-equalizer span:nth-child(3) {
-    animation-delay: .0s;
-}
-
-.music-equalizer span:nth-child(4) {
-    animation-delay: .2s;
-}
-
-.music-equalizer span:nth-child(5) {
-    animation-delay: .4s;
-}
-
-
-@keyframes equalizer {
-
-    from {
-        height: 5px;
-    }
-
-    to {
-        height: 23px;
-    }
-
-}
-
-
-/* دکمه Play */
-
-.music-play-button {
-
-    width: 62px;
-
-    height: 62px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    margin: 18px auto 14px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f58db6,
-            #d9578c
-        );
-
-    color: white;
-
-    font-size: 21px;
-
-    box-shadow:
-        0 10px 25px rgba(216,87,140,.25);
-
-    cursor: pointer;
-
-    transition:
-        transform .2s ease;
-
-}
-
-
-.music-play-button:active {
-
-    transform: scale(.9);
-
-}
-
-
-/* Progress */
-
-.music-progress {
-
-    width: 100%;
-
-    height: 5px;
-
-    border-radius: 10px;
-
-    background: #f2dce5;
-
-    overflow: hidden;
-
-}
-
-
-.music-progress-bar {
-
-    width: 0%;
-
-    height: 100%;
-
-    border-radius: inherit;
-
-    background:
-        linear-gradient(
-            90deg,
-            #f28ab3,
-            #d9578c
-        );
-
-}
-
-
-/* زمان */
-
-.music-time {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    margin-top: 6px;
-
-    direction: ltr;
-
-    font-size: 11px;
-
-    color: #a77c8c;
-
-}
-
-
-.music-hint {
-
-    font-size: 13px;
-
-    color: #a77b8b;
-
-    margin-top: 14px;
-
-}
-
-
-.music-next-button {
-
-    margin-top: 12px;
-
-}
-
-
-/* =====================================================
-   SCENE 7 - EMOTIONAL
-   ===================================================== */
-
-.emotional-scene {
-
-    background:
-        radial-gradient(
-            circle at center,
-            #ffffff 0%,
-            #fff6fa 50%,
-            #ffe5ef 100%
-        );
-
-}
-
-
-.emotional-content {
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-}
-
-
-.emotional-background {
-
-    position: absolute;
-
-    inset: 0;
-
-    overflow: hidden;
-
-    pointer-events: none;
-
-}
-
-
-.emotional-background span {
-
-    position: absolute;
-
-    color: rgba(215,91,143,.16);
-
-    font-size: 30px;
-
-    animation:
-        heartFloat 6s ease-in-out infinite;
-
-}
-
-
-.emotional-background span:nth-child(1) {
-
-    left: 10%;
-    top: 20%;
-
-}
-
-
-.emotional-background span:nth-child(2) {
-
-    right: 12%;
-    top: 30%;
-
-    animation-delay: 1.5s;
-
-}
-
-
-.emotional-background span:nth-child(3) {
-
-    left: 20%;
-    bottom: 20%;
-
-    animation-delay: 2s;
-
-}
-
-
-.emotional-background span:nth-child(4) {
-
-    right: 18%;
-    bottom: 28%;
-
-    animation-delay: 3s;
-
-}
-
-
-.emotional-background span:nth-child(5) {
-
-    left: 52%;
-    top: 12%;
-
-    animation-delay: 1s;
-
-}
-
-
-@keyframes heartFloat {
-
-    0%,
-    100% {
-
-        transform:
-            translateY(0)
-            scale(1);
-
-    }
-
-    50% {
-
-        transform:
-            translateY(-18px)
-            scale(1.08);
-
-    }
-
-}
-
-
-.emotional-top-symbol {
-
-    font-size: 38px;
-
-    color: #e48cab;
-
-    margin-bottom: 25px;
-
-    animation:
-        heartPulse 1.8s ease-in-out infinite;
-
-}
-
-
-@keyframes heartPulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.12);
-    }
-
-}
-
-
-.emotional-line {
-
-    max-width: 340px;
-
-    color: #654d59;
-
-    line-height: 2.1;
-
-    opacity: 0;
-
-}
-
-
-.emotional-line-1 {
-
-    font-size: 27px;
-
-    color: #d65b8d;
-
-    animation:
-        emotionalAppear .9s ease forwards;
-
-}
-
-
-.emotional-line-2 {
-
-    font-size: 19px;
-
-    margin-top: 18px;
-
-    animation:
-        emotionalAppear .9s ease forwards;
-
-    animation-delay: .9s;
-
-}
-
-
-.emotional-line-3 {
-
-    font-size: 18px;
-
-    margin-top: 18px;
-
-    animation:
-        emotionalAppear .9s ease forwards;
-
-    animation-delay: 1.8s;
-
-}
-
-
-.emotional-line-4 {
-
-    font-size: 18px;
-
-    color: #b65a7e;
-
-    margin-top: 18px;
-
-    animation:
-        emotionalAppear .9s ease forwards;
-
-    animation-delay: 2.7s;
-
-}
-
-
-@keyframes emotionalAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(15px);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
-
-    }
-
-}
-
-
-.emotional-divider {
-
-    width: 65px;
-
-    height: 2px;
-
-    margin: 25px 0 18px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #e6a0b9,
-            transparent
-        );
-
-}
-
-
-.final-wish {
-
-    font-size: 24px;
-
-    color: #d35488;
-
-    font-weight: 600;
-
-}
-
-
-.emotional-next-button {
-
-    width: 52px;
-
-    height: 52px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    margin-top: 25px;
-
-    background:
-        rgba(255,255,255,.8);
-
-    box-shadow:
-        0 8px 25px rgba(180,80,120,.15);
-
-    font-size: 24px;
-
-    cursor: pointer;
-
-}
-
-
-/* =====================================================
-   SCENE 8 - FINAL
-   ===================================================== */
-
-.final-scene {
-
-    background:
-        radial-gradient(
-            circle at center,
-            #fff8fb 0%,
-            #ffe9f2 45%,
-            #fbd5e4 100%
-        );
-
-}
-
-
-.final-content {
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-}
-
-
-.final-small {
-
-    font-size: 17px;
-
-    color: #a16d80;
-
-    margin-bottom: 15px;
-
-    animation:
-        finalAppear 1s ease both;
-
-}
-
-
-.final-title {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 43px;
-
-    color: #d45789;
-
-    margin-bottom: 5px;
-
-    animation:
-        finalTitleAppear 1.2s ease both;
-
-}
-
-
-.final-name {
-
-    font-size: 34px;
-
-    color: #b94d78;
-
-    margin-bottom: 20px;
-
-    animation:
-        finalTitleAppear 1.4s ease both;
-
-    animation-delay: .2s;
-
-}
-
-
-.final-line {
-
-    width: 85px;
-
-    height: 2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #dc8eaa,
-            transparent
-        );
-
-    margin-bottom: 25px;
-
-}
-
-
-.final-message {
-
-    max-width: 320px;
-
-    font-size: 18px;
-
-    line-height: 2;
-
-    color: #6c515d;
-
-    animation:
-        finalAppear 1.2s ease both;
-
-    animation-delay: .5s;
-
-}
-
-
-.final-made {
-
-    margin-top: 25px;
-
-    font-size: 14px;
-
-    color: #a77989;
-
-    letter-spacing: .3px;
-
-}
-
-
-@keyframes finalAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(18px);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
-
-    }
-
-}
-
-
-@keyframes finalTitleAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(20px)
-            scale(.92);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
-    }
-
-}
-
-
-/* پایان - پرستوها */
-
-.final-birds {
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    overflow: hidden;
-
-}
-
-
-.final-birds span {
-
-    position: absolute;
-
-    font-size: 28px;
-
-    opacity: 0;
-
-}
-
-
-.final-birds span:nth-child(1) {
-
-    left: -10%;
-
-    top: 25%;
-
-    animation:
-        finalBird 9s linear infinite;
-
-}
-
-
-.final-birds span:nth-child(2) {
-
-    left: -20%;
-
-    top: 40%;
-
-    animation:
-        finalBird 11s linear infinite;
-
-    animation-delay: 1.5s;
-
-}
-
-
-.final-birds span:nth-child(3) {
-
-    left: -15%;
-
-    top: 60%;
-
-    animation:
-        finalBird 10s linear infinite;
-
-    animation-delay: 3s;
-
-}
-
-
-@keyframes finalBird {
-
-    0% {
-
-        opacity: 0;
-
-        transform:
-            translateX(0)
-            translateY(0);
-
-    }
-
-    10% {
-
-        opacity: .7;
-
-    }
-
-    50% {
-
-        transform:
-            translateX(55vw)
-            translateY(-25px);
-
-    }
-
-    90% {
-
-        opacity: .7;
-
-    }
-
-    100% {
-
-        opacity: 0;
-
-        transform:
-            translateX(120vw)
-            translateY(20px);
-
-    }
-
-}
-
-
-/* =====================================================
-   ذرات Scene 8
-   ===================================================== */
-
-.final-particles {
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-}
-
-
-.final-particles span {
-
-    position: absolute;
-
-    width: 4px;
-
-    height: 4px;
-
-    border-radius: 50%;
-
-    background: #e6a0b9;
-
-    box-shadow:
-        0 0 10px rgba(220,130,165,.6);
+    opacity: 0.45;
 
     animation:
         finalParticle 5s ease-in-out infinite;
-
 }
 
-
 .final-particles span:nth-child(1) {
-    left: 10%;
     top: 15%;
+    left: 20%;
 }
 
 .final-particles span:nth-child(2) {
-    left: 20%;
-    top: 70%;
-    animation-delay: 1s;
+    top: 20%;
+    left: 70%;
 }
 
 .final-particles span:nth-child(3) {
-    left: 35%;
-    top: 25%;
-    animation-delay: 2s;
+    top: 35%;
+    left: 12%;
 }
 
 .final-particles span:nth-child(4) {
-    left: 50%;
-    top: 75%;
-    animation-delay: .5s;
+    top: 45%;
+    left: 85%;
 }
 
 .final-particles span:nth-child(5) {
-    left: 70%;
-    top: 18%;
-    animation-delay: 1.5s;
+    top: 60%;
+    left: 15%;
 }
 
 .final-particles span:nth-child(6) {
-    left: 85%;
-    top: 65%;
-    animation-delay: 2.5s;
+    top: 75%;
+    left: 75%;
 }
 
 .final-particles span:nth-child(7) {
-    left: 15%;
-    top: 45%;
-    animation-delay: 3s;
+    top: 80%;
+    left: 30%;
 }
 
 .final-particles span:nth-child(8) {
-    left: 80%;
-    top: 35%;
-    animation-delay: 1.2s;
+    top: 30%;
+    left: 50%;
 }
 
 .final-particles span:nth-child(9) {
-    left: 45%;
-    top: 10%;
-    animation-delay: 2.2s;
+    top: 65%;
+    left: 50%;
 }
 
 .final-particles span:nth-child(10) {
-    left: 65%;
-    top: 85%;
-    animation-delay: 3.2s;
+    top: 25%;
+    left: 35%;
 }
 
 .final-particles span:nth-child(11) {
-    left: 5%;
-    top: 85%;
-    animation-delay: .8s;
+    top: 55%;
+    left: 65%;
 }
 
 .final-particles span:nth-child(12) {
-    left: 92%;
-    top: 15%;
-    animation-delay: 1.8s;
+    top: 85%;
+    left: 60%;
 }
-
 
 @keyframes finalParticle {
 
     0%,
     100% {
-
-        opacity: .2;
-
-        transform:
-            translateY(0)
-            scale(.7);
-
+        transform: translateY(0);
+        opacity: 0.25;
     }
 
     50% {
-
-        opacity: .9;
-
-        transform:
-            translateY(-18px)
-            scale(1.3);
-
+        transform: translateY(-15px);
+        opacity: 0.65;
     }
-
 }
 
 
-/* =====================================================
-   دکمه شروع دوباره
-   ===================================================== */
-
-.restart-button {
-
-    border: 1px solid rgba(210,90,135,.2);
-
-    background:
-        rgba(255,255,255,.7);
-
-    color: #b45578;
-
-    font-family: inherit;
-
-    font-size: 15px;
-
-    padding: 12px 22px;
-
-    border-radius: 50px;
-
-    margin-top: 25px;
-
-    box-shadow:
-        0 8px 20px rgba(180,80,120,.12);
-
-    cursor: pointer;
-
-}
-
-
-.restart-button:active {
-
-    transform: scale(.94);
-
-}
-
-
-/* =====================================================
-   موبایل‌های کوچک
-   ===================================================== */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 380px) {
 
-    .music-card {
-        width: 82vw;
+    .scene1-content {
+        padding-top: 13vh;
     }
 
-    .music-photo {
-        height: 165px;
+    .welcome-text {
+        margin-bottom: 45px;
     }
 
-    .music-title {
-        font-size: 22px;
+    .wish-text {
+        font-size: 27px;
     }
 
-    .emotional-line-2 {
-        font-size: 17px;
-    }
-
-    .emotional-line-3,
-    .emotional-line-4 {
+    .instruction {
         font-size: 16px;
     }
 
-    .final-title {
-        font-size: 37px;
+    .cake {
+        transform: scale(0.9);
+        transform-origin: top center;
     }
 
-    .final-name {
-        font-size: 30px;
+    .message-two,
+    .message-three {
+        font-size: 16px;
+    }
+
+    .music-card {
+        width: 94vw;
     }
 
 }
-/* ==============================
-   FIX CANDLE FLAME POSITION
-   ============================== */
+
+
+/* =========================================================
+   VERY SHORT PHONES
+   ========================================================= */
+
+@media (max-height: 700px) {
+
+    .scene1-content {
+        padding-top: 9vh;
+    }
+
+    .welcome-text {
+        margin-bottom: 30px;
+    }
+
+    .cake {
+        transform: scale(0.82);
+        transform-origin: top center;
+    }
+
+}
+
+
+/* =========================================================
+   TOUCH / SELECTION
+   ========================================================= */
+
+button,
+.candle,
+.flame,
+.photo-card,
+.music-card {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   IMPORTANT CANDLE CLICK FIX
+   ========================================================= */
+
+.candle,
+.candle .flame {
+    pointer-events: auto;
+}
 
 .candle {
-    position: relative;
-}
-
-.candle .flame {
-    position: absolute;
-    left: 50%;
-    bottom: 100%;
-    transform: translateX(-50%);
-    z-index: 20;
+    isolation: isolate;
 }
