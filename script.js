@@ -1,32 +1,5 @@
 let currentScene = 1;
-
 let candleBlown = false;
-
-
-/* =====================================================
-   ELEMENTS
-   ===================================================== */
-
-const music =
-    document.getElementById("birthdayMusic");
-
-const musicButton =
-    document.getElementById("musicButton");
-
-const musicCard =
-    document.querySelector(".music-card");
-
-const musicPlayIcon =
-    document.getElementById("musicPlayIcon");
-
-const musicProgressBar =
-    document.getElementById("musicProgressBar");
-
-const musicCurrentTime =
-    document.getElementById("musicCurrentTime");
-
-const musicDuration =
-    document.getElementById("musicDuration");
 
 
 /* =====================================================
@@ -35,18 +8,13 @@ const musicDuration =
 
 function showScene(number) {
 
-    document
-        .querySelectorAll(".scene")
-        .forEach(scene => {
+    const scenes = document.querySelectorAll(".scene");
 
-            scene.classList.remove("active");
+    scenes.forEach(scene => {
+        scene.classList.remove("active");
+    });
 
-        });
-
-
-    const selectedScene =
-        document.getElementById("scene" + number);
-
+    const selectedScene = document.getElementById("scene" + number);
 
     if (selectedScene) {
 
@@ -56,8 +24,11 @@ function showScene(number) {
 
         window.scrollTo(0, 0);
 
-    }
+    } else {
 
+        console.log("Scene پیدا نشد: scene" + number);
+
+    }
 }
 
 
@@ -78,12 +49,11 @@ function nextScene(number) {
 
 function blowCandle() {
 
+    console.log("CANDLE CLICKED");
+
     if (candleBlown) {
-
         return;
-
     }
-
 
     candleBlown = true;
 
@@ -98,28 +68,30 @@ function blowCandle() {
         document.getElementById("particles");
 
 
+    /* خاموش کردن شعله */
+
     if (flame) {
-
         flame.classList.add("off");
-
     }
 
+
+    /* نمایش دود */
 
     if (smoke) {
-
         smoke.classList.add("show");
-
     }
 
+
+    /* نمایش ذرات */
 
     if (particles) {
-
         particles.classList.add("show");
-
     }
 
 
-    setTimeout(() => {
+    /* رفتن به Scene 2 */
+
+    setTimeout(function () {
 
         showScene(2);
 
@@ -137,9 +109,6 @@ function playMusic() {
     const audio =
         document.getElementById("birthdayMusic");
 
-    const button =
-        document.getElementById("musicButton");
-
     const icon =
         document.getElementById("musicPlayIcon");
 
@@ -147,34 +116,27 @@ function playMusic() {
         document.querySelector(".music-card");
 
 
-    if (!audio || !button) {
-
+    if (!audio) {
+        console.log("Audio پیدا نشد!");
         return;
-
     }
 
 
     if (audio.paused) {
 
-        audio
-            .play()
-            .then(() => {
+        audio.play()
+            .then(function () {
 
                 if (icon) {
-
                     icon.innerHTML = "⏸";
-
                 }
 
-
                 if (card) {
-
                     card.classList.add("playing");
-
                 }
 
             })
-            .catch(error => {
+            .catch(function (error) {
 
                 console.log(
                     "Music playback error:",
@@ -183,24 +145,16 @@ function playMusic() {
 
             });
 
-    }
-
-    else {
+    } else {
 
         audio.pause();
 
-
         if (icon) {
-
             icon.innerHTML = "▶";
-
         }
 
-
         if (card) {
-
             card.classList.remove("playing");
-
         }
 
     }
@@ -214,23 +168,15 @@ function playMusic() {
 
 function formatTime(seconds) {
 
-    if (
-        !seconds ||
-        isNaN(seconds)
-    ) {
-
+    if (!seconds || isNaN(seconds)) {
         return "0:00";
-
     }
-
 
     const minutes =
         Math.floor(seconds / 60);
 
-
     const remainingSeconds =
         Math.floor(seconds % 60);
-
 
     return (
         minutes +
@@ -250,23 +196,29 @@ function updateMusicProgress() {
     const audio =
         document.getElementById("birthdayMusic");
 
+    const progressBar =
+        document.getElementById("musicProgressBar");
+
+    const currentTime =
+        document.getElementById("musicCurrentTime");
+
 
     if (!audio) {
-
         return;
-
     }
 
 
-    if (audio.duration) {
+    if (
+        audio.duration &&
+        !isNaN(audio.duration)
+    ) {
 
         const percentage =
             (audio.currentTime / audio.duration) * 100;
 
+        if (progressBar) {
 
-        if (musicProgressBar) {
-
-            musicProgressBar.style.width =
+            progressBar.style.width =
                 percentage + "%";
 
         }
@@ -274,9 +226,9 @@ function updateMusicProgress() {
     }
 
 
-    if (musicCurrentTime) {
+    if (currentTime) {
 
-        musicCurrentTime.innerHTML =
+        currentTime.innerHTML =
             formatTime(audio.currentTime);
 
     }
@@ -293,20 +245,17 @@ function musicLoaded() {
     const audio =
         document.getElementById("birthdayMusic");
 
+    const duration =
+        document.getElementById("musicDuration");
 
-    if (!audio) {
 
+    if (!audio || !duration) {
         return;
-
     }
 
 
-    if (musicDuration) {
-
-        musicDuration.innerHTML =
-            formatTime(audio.duration);
-
-    }
+    duration.innerHTML =
+        formatTime(audio.duration);
 
 }
 
@@ -323,25 +272,22 @@ function musicEnded() {
     const card =
         document.querySelector(".music-card");
 
+    const progressBar =
+        document.getElementById("musicProgressBar");
+
 
     if (icon) {
-
         icon.innerHTML = "▶";
-
     }
 
 
     if (card) {
-
         card.classList.remove("playing");
-
     }
 
 
-    if (musicProgressBar) {
-
-        musicProgressBar.style.width = "0%";
-
+    if (progressBar) {
+        progressBar.style.width = "0%";
     }
 
 }
@@ -356,6 +302,32 @@ function restartSite() {
     const audio =
         document.getElementById("birthdayMusic");
 
+    const flame =
+        document.getElementById("flame");
+
+    const smoke =
+        document.getElementById("smoke");
+
+    const particles =
+        document.getElementById("particles");
+
+    const icon =
+        document.getElementById("musicPlayIcon");
+
+    const progressBar =
+        document.getElementById("musicProgressBar");
+
+    const currentTime =
+        document.getElementById("musicCurrentTime");
+
+    const duration =
+        document.getElementById("musicDuration");
+
+    const card =
+        document.querySelector(".music-card");
+
+
+    /* موسیقی */
 
     if (audio) {
 
@@ -366,88 +338,60 @@ function restartSite() {
     }
 
 
-    /* شمع */
-
-    const flame =
-        document.getElementById("flame");
-
+    /* شعله */
 
     if (flame) {
-
         flame.classList.remove("off");
-
     }
 
 
     /* دود */
 
-    const smoke =
-        document.getElementById("smoke");
-
-
     if (smoke) {
-
         smoke.classList.remove("show");
-
     }
 
 
     /* ذرات */
 
-    const particles =
-        document.getElementById("particles");
-
-
     if (particles) {
-
         particles.classList.remove("show");
-
     }
 
 
-    /* پلیر */
-
-    const icon =
-        document.getElementById("musicPlayIcon");
-
+    /* موزیک پلیر */
 
     if (icon) {
-
         icon.innerHTML = "▶";
-
     }
 
 
-    if (musicProgressBar) {
-
-        musicProgressBar.style.width = "0%";
-
+    if (progressBar) {
+        progressBar.style.width = "0%";
     }
 
 
-    if (musicCurrentTime) {
-
-        musicCurrentTime.innerHTML = "0:00";
-
+    if (currentTime) {
+        currentTime.innerHTML = "0:00";
     }
 
 
-    if (musicDuration) {
-
-        musicDuration.innerHTML = "0:00";
-
+    if (duration) {
+        duration.innerHTML = "0:00";
     }
 
 
-    if (musicCard) {
-
-        musicCard.classList.remove("playing");
-
+    if (card) {
+        card.classList.remove("playing");
     }
 
+
+    /* ریست شمع */
 
     candleBlown = false;
 
+
+    /* برگشت به اول */
 
     showScene(1);
 
@@ -455,21 +399,19 @@ function restartSite() {
 
 
 /* =====================================================
-   MUSIC EVENTS
+   PAGE LOADED
    ===================================================== */
 
 document.addEventListener(
     "DOMContentLoaded",
-    () => {
+    function () {
 
         const audio =
             document.getElementById("birthdayMusic");
 
 
         if (!audio) {
-
             return;
-
         }
 
 
