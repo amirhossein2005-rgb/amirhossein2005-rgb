@@ -365,3 +365,888 @@ button:active {
     border-radius: 25px;
     display: block;
 }
+/* =====================================================
+   SCENE 1 - BIRTHDAY CAKE
+   ===================================================== */
+
+
+/* محتوای Scene 1 */
+
+.scene1-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================
+   متن بالای کیک
+   ========================= */
+
+.welcome-text {
+    margin-bottom: 30px;
+}
+
+.wish-text {
+    font-size: 25px;
+    font-weight: 600;
+    color: #d95b91;
+    margin-bottom: 15px;
+
+    animation: textAppear 1.2s ease both;
+}
+
+.scene1-content .instruction {
+    font-size: 16px;
+    color: #a56b85;
+    margin: 0;
+
+    animation: textAppear 1.5s ease both;
+    animation-delay: 0.3s;
+}
+
+
+@keyframes textAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   کیک
+   ========================= */
+
+.cake {
+    position: relative;
+
+    width: 260px;
+    height: 300px;
+
+    margin: 0 auto;
+
+    animation: cakeAppear 1.2s cubic-bezier(.2,.8,.2,1) both;
+}
+
+
+@keyframes cakeAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================
+   بشقاب
+   ========================= */
+
+.cake-plate {
+
+    position: absolute;
+
+    bottom: 10px;
+    left: 10px;
+
+    width: 240px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #fff,
+            #f5dce7
+        );
+
+    box-shadow:
+        0 10px 25px rgba(180, 90, 125, .15);
+
+    z-index: 1;
+
+}
+
+
+/* =========================
+   لایه پایین کیک
+   ========================= */
+
+.cake-layer-bottom {
+
+    position: absolute;
+
+    left: 30px;
+    bottom: 35px;
+
+    width: 200px;
+    height: 100px;
+
+    border-radius: 18px 18px 25px 25px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ffafd0 0%,
+            #f88db8 100%
+        );
+
+    box-shadow:
+        inset 0 -8px 0 rgba(190, 70, 120, .08),
+        0 12px 20px rgba(180, 80, 120, .12);
+
+    z-index: 3;
+
+}
+
+
+/* =========================
+   لایه بالایی کیک
+   ========================= */
+
+.cake-layer-top {
+
+    position: absolute;
+
+    left: 45px;
+    bottom: 120px;
+
+    width: 170px;
+    height: 70px;
+
+    border-radius: 18px 18px 20px 20px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ffc5dc,
+            #ff9fc5
+        );
+
+    box-shadow:
+        0 8px 15px rgba(180, 80, 120, .10);
+
+    z-index: 4;
+
+}
+
+
+/* =========================
+   خامه بالای کیک
+   ========================= */
+
+.cake-cream-top {
+
+    position: absolute;
+
+    left: 42px;
+    bottom: 175px;
+
+    width: 176px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ffffff,
+            #fff2f7
+        );
+
+    box-shadow:
+        0 4px 8px rgba(160, 80, 110, .08);
+
+    z-index: 6;
+
+}
+
+
+/* خامه‌های کوچک */
+
+.cake-cream-top span {
+
+    position: absolute;
+
+    width: 22px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    bottom: -8px;
+
+}
+
+
+.cake-cream-top span:nth-child(1) {
+    left: 8px;
+}
+
+.cake-cream-top span:nth-child(2) {
+    left: 42px;
+}
+
+.cake-cream-top span:nth-child(3) {
+    left: 76px;
+}
+
+.cake-cream-top span:nth-child(4) {
+    left: 110px;
+}
+
+.cake-cream-top span:nth-child(5) {
+    left: 144px;
+}
+
+
+/* =========================
+   خامه‌ای که از لبه می‌ریزد
+   ========================= */
+
+.cake-drip {
+
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+    top: 45px;
+
+    height: 12px;
+
+    background: #fff;
+
+    border-radius: 0 0 15px 15px;
+
+}
+
+
+/* =========================
+   خط تزئینی
+   ========================= */
+
+.cake-stripe {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: 38px;
+
+    height: 8px;
+
+    background: rgba(255,255,255,.35);
+
+}
+
+
+/* =========================
+   شمع
+   ========================= */
+
+.candle {
+
+    position: absolute;
+
+    left: 122px;
+    bottom: 203px;
+
+    width: 16px;
+    height: 72px;
+
+    border-radius: 8px;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #fff,
+            #fff 5px,
+            #f7c8dc 6px,
+            #f7c8dc 9px
+        );
+
+    box-shadow:
+        0 3px 8px rgba(160, 80, 110, .15);
+
+    z-index: 8;
+
+}
+
+
+/* فتیله */
+
+.candle::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 3px;
+    height: 10px;
+
+    background: #5c3c46;
+
+    left: 50%;
+    top: -8px;
+
+    transform: translateX(-50%);
+
+    border-radius: 3px;
+
+}
+
+
+/* =========================
+   شعله
+   ========================= */
+
+.flame {
+
+    position: absolute;
+
+    left: 111px;
+    bottom: 274px;
+
+    width: 38px;
+    height: 52px;
+
+    cursor: pointer;
+
+    z-index: 12;
+
+    transform-origin: center bottom;
+
+    animation:
+        flameMove .7s ease-in-out infinite alternate;
+
+}
+
+
+/* شعله اصلی */
+
+.flame::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 7px;
+    bottom: 0;
+
+    width: 25px;
+    height: 42px;
+
+    border-radius:
+        50% 50% 50% 50% /
+        65% 65% 35% 35%;
+
+    background:
+        linear-gradient(
+            to top,
+            #ff8a00,
+            #ffd43b 60%,
+            #fff4b0
+        );
+
+    transform:
+        rotate(45deg);
+
+    box-shadow:
+        0 0 15px rgba(255, 165, 0, .6),
+        0 0 30px rgba(255, 190, 50, .35);
+
+}
+
+
+/* قسمت داخلی شعله */
+
+.flame-inner {
+
+    position: absolute;
+
+    left: 14px;
+    bottom: 5px;
+
+    width: 12px;
+    height: 24px;
+
+    background: #fff;
+
+    border-radius: 50%;
+
+    transform: rotate(45deg);
+
+    z-index: 2;
+
+}
+
+
+/* حرکت شعله */
+
+@keyframes flameMove {
+
+    0% {
+        transform: rotate(-3deg) scale(1);
+    }
+
+    100% {
+        transform: rotate(3deg) scale(1.08);
+    }
+
+}
+
+
+/* نور اطراف شعله */
+
+.flame-glow {
+
+    position: absolute;
+
+    left: 103px;
+    bottom: 265px;
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 188, 70, .20);
+
+    filter: blur(12px);
+
+    z-index: 7;
+
+    animation: glowPulse 1s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes glowPulse {
+
+    from {
+        transform: scale(.85);
+        opacity: .5;
+    }
+
+    to {
+        transform: scale(1.15);
+        opacity: .9;
+    }
+
+}
+
+
+/* =========================
+   خاموش شدن شعله
+   ========================= */
+
+.flame.off {
+
+    animation: flameOff .5s ease forwards;
+
+    pointer-events: none;
+
+}
+
+
+@keyframes flameOff {
+
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-8px) scale(.15);
+    }
+
+}
+
+
+/* نور هم خاموش شود */
+
+.cake:has(.flame.off) .flame-glow {
+
+    animation: glowOff .5s ease forwards;
+
+}
+
+
+@keyframes glowOff {
+
+    to {
+        opacity: 0;
+        transform: scale(.2);
+    }
+
+}
+
+
+/* =========================
+   دود
+   ========================= */
+
+.smoke {
+
+    position: absolute;
+
+    left: 116px;
+    bottom: 265px;
+
+    width: 35px;
+    height: 70px;
+
+    z-index: 11;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+}
+
+
+.smoke span {
+
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: rgba(150, 150, 150, .35);
+
+    filter: blur(3px);
+
+}
+
+
+.smoke span:nth-child(1) {
+
+    left: 12px;
+    bottom: 0;
+
+}
+
+
+.smoke span:nth-child(2) {
+
+    left: 20px;
+    bottom: 10px;
+
+}
+
+
+.smoke span:nth-child(3) {
+
+    left: 8px;
+    bottom: 18px;
+
+}
+
+
+.smoke.show {
+
+    opacity: 1;
+
+}
+
+
+.smoke.show span:nth-child(1) {
+
+    animation: smoke1 1.5s ease-out forwards;
+
+}
+
+
+.smoke.show span:nth-child(2) {
+
+    animation: smoke2 1.7s ease-out forwards;
+
+}
+
+
+.smoke.show span:nth-child(3) {
+
+    animation: smoke3 1.4s ease-out forwards;
+
+}
+
+
+@keyframes smoke1 {
+
+    to {
+        transform:
+            translate(-8px, -55px)
+            scale(2);
+
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes smoke2 {
+
+    to {
+        transform:
+            translate(12px, -65px)
+            scale(2.5);
+
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes smoke3 {
+
+    to {
+        transform:
+            translate(-15px, -45px)
+            scale(1.8);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================
+   ذرات نور
+   ========================= */
+
+.particles {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+}
+
+
+.particles span {
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #ffd477;
+
+    box-shadow:
+        0 0 10px rgba(255, 200, 90, .8);
+
+}
+
+
+.particles span:nth-child(1) {
+    left: 35%;
+    top: 43%;
+}
+
+.particles span:nth-child(2) {
+    left: 60%;
+    top: 40%;
+}
+
+.particles span:nth-child(3) {
+    left: 42%;
+    top: 50%;
+}
+
+.particles span:nth-child(4) {
+    left: 70%;
+    top: 52%;
+}
+
+.particles span:nth-child(5) {
+    left: 30%;
+    top: 55%;
+}
+
+.particles span:nth-child(6) {
+    left: 55%;
+    top: 45%;
+}
+
+.particles span:nth-child(7) {
+    left: 48%;
+    top: 38%;
+}
+
+.particles span:nth-child(8) {
+    left: 65%;
+    top: 48%;
+}
+
+.particles span:nth-child(9) {
+    left: 38%;
+    top: 47%;
+}
+
+.particles span:nth-child(10) {
+    left: 58%;
+    top: 55%;
+}
+
+
+.particles.show {
+
+    opacity: 1;
+
+}
+
+
+.particles.show span {
+
+    animation: particleBurst 1.2s ease-out forwards;
+
+}
+
+
+@keyframes particleBurst {
+
+    0% {
+
+        transform:
+            translate(0, 0)
+            scale(.2);
+
+        opacity: 0;
+
+    }
+
+    20% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translate(
+                calc((var(--x, 1) * 80px)),
+                calc((var(--y, -1) * 100px))
+            )
+            scale(0);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* مسیرهای مختلف ذرات */
+
+.particles span:nth-child(1) {
+    --x: -1;
+    --y: -1;
+}
+
+.particles span:nth-child(2) {
+    --x: 1;
+    --y: -1;
+}
+
+.particles span:nth-child(3) {
+    --x: -1;
+    --y: 1;
+}
+
+.particles span:nth-child(4) {
+    --x: 1;
+    --y: 1;
+}
+
+.particles span:nth-child(5) {
+    --x: -1;
+    --y: 0;
+}
+
+.particles span:nth-child(6) {
+    --x: 1;
+    --y: 0;
+}
+
+.particles span:nth-child(7) {
+    --x: 0;
+    --y: -1;
+}
+
+.particles span:nth-child(8) {
+    --x: 0;
+    --y: 1;
+}
+
+.particles span:nth-child(9) {
+    --x: -1;
+    --y: -1;
+}
+
+.particles span:nth-child(10) {
+    --x: 1;
+    --y: -1;
+}
+
+
+/* =========================
+   موبایل‌های کوچک
+   ========================= */
+
+@media (max-height: 700px) {
+
+    .wish-text {
+        font-size: 22px;
+    }
+
+    .welcome-text {
+        margin-bottom: 10px;
+    }
+
+    .cake {
+        transform: scale(.85);
+        margin-top: -10px;
+    }
+
+}
+
+
+@media (max-width: 360px) {
+
+    .cake {
+        transform: scale(.8);
+    }
+
+    .wish-text {
+        font-size: 21px;
+    }
+
+}
