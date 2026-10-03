@@ -25,54 +25,159 @@
 
     <!-- ==================== SCENE 1 ==================== -->
 
-    <section id="scene1" class="scene active">
+<!-- ==================== SCENE 1 ==================== -->
 
-        <div class="birds">
+<section id="scene1" class="scene active">
 
-            <span>🕊️</span>
-            <span>🕊️</span>
-            <span>🕊️</span>
-            <span>🕊️</span>
-            <span>🕊️</span>
-            <span>🕊️</span>
+    <!-- پرستوها -->
+
+    <div class="birds">
+
+        <span>🕊️</span>
+        <span>🕊️</span>
+        <span>🕊️</span>
+        <span>🕊️</span>
+        <span>🕊️</span>
+        <span>🕊️</span>
+
+    </div>
+
+
+    <div class="scene-content scene1-content">
+
+
+        <!-- متن -->
+
+        <div class="welcome-text">
+
+            <p class="wish-text">
+                یه آرزو کن... ✨
+            </p>
+
+            <p class="instruction">
+                حالا با دستت شمعو خاموش کن 🕯️
+            </p>
 
         </div>
 
 
-        <div class="scene-content">
+        <!-- کیک -->
 
-            <p class="instruction">
-                با دستت شمعو خاموش کن 🕯️
-            </p>
+        <div class="cake">
 
+            <!-- نور اطراف شعله -->
 
-            <div class="cake">
-
-                <div
-                    id="flame"
-                    class="flame"
-                    onclick="blowCandle()"
-                >
-                    🔥
-                </div>
+            <div class="flame-glow"></div>
 
 
-                <div class="candle"></div>
+            <!-- شعله -->
 
+            <div
+                id="flame"
+                class="flame"
+                onclick="blowCandle()"
+            >
 
-                <div class="cake-top"></div>
-
-
-                <div class="cake-body">
-                    🎂
-                </div>
+                <div class="flame-inner"></div>
 
             </div>
 
+
+            <!-- دود -->
+
+            <div id="smoke" class="smoke">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <!-- شمع -->
+
+            <div class="candle">
+
+                <div class="candle-decoration"></div>
+
+            </div>
+
+
+            <!-- تزئین روی کیک -->
+
+            <div class="cake-cream-top">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <!-- لایه بالایی -->
+
+            <div class="cake-layer cake-layer-top">
+
+                <div class="cake-drip"></div>
+
+            </div>
+
+
+            <!-- لایه پایینی -->
+
+            <div class="cake-layer cake-layer-bottom">
+
+                <div class="cake-stripe"></div>
+
+            </div>
+
+
+            <!-- تزئینات -->
+
+            <div class="cake-sprinkles">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <!-- بشقاب -->
+
+            <div class="cake-plate"></div>
+
         </div>
 
-    </section>
 
+        <!-- ذرات نور -->
+
+        <div id="particles" class="particles">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+    </div>
+
+</section>
 
 
     <!-- ==================== SCENE 2 ==================== -->
