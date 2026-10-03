@@ -11,32 +11,25 @@
 html,
 body {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
     font-family: Tahoma, Arial, sans-serif;
-
     background: #fff7fa;
-
     color: #5d4a52;
-
     overflow: hidden;
-
     -webkit-tap-highlight-color: transparent;
 }
 
 button {
     font-family: inherit;
-
     -webkit-tap-highlight-color: transparent;
-
     user-select: none;
 }
 
 img {
     max-width: 100%;
-
     display: block;
 }
 
@@ -46,12 +39,10 @@ img {
    ========================================================= */
 
 #app {
-    position: relative;
-
     width: 100%;
     height: 100vh;
     height: 100dvh;
-
+    position: relative;
     overflow: hidden;
 }
 
@@ -62,7 +53,6 @@ img {
 
 .scene {
     position: absolute;
-
     inset: 0;
 
     width: 100%;
@@ -76,7 +66,7 @@ img {
         radial-gradient(
             circle at 50% 35%,
             #ffffff 0%,
-            #fffafd 40%,
+            #fffafd 38%,
             #fff0f6 100%
         );
 }
@@ -87,18 +77,14 @@ img {
 
 .scene-content {
     position: relative;
-
-    z-index: 20;
+    z-index: 10;
 
     width: 100%;
     height: 100%;
 
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     justify-content: center;
 
     padding: 30px 20px;
@@ -112,7 +98,7 @@ img {
 .scene1 {
     background:
         radial-gradient(
-            circle at 50% 24%,
+            circle at 50% 25%,
             #ffffff 0%,
             #fffafd 45%,
             #fff0f6 100%
@@ -120,427 +106,103 @@ img {
 }
 
 
-/* =========================================================
-   SVG SWALLOWS
-   ========================================================= */
+/* ---------- Birds ---------- */
 
-.swallows {
+.birds {
     position: absolute;
-
     inset: 0;
 
     width: 100%;
     height: 100%;
 
     pointer-events: none;
-
-    z-index: 5;
-
-    overflow: hidden;
+    z-index: 2;
 }
 
-
-/* ---------- Base SVG ---------- */
-
-.swallow {
+.birds span {
     position: absolute;
 
-    height: auto;
+    font-size: 30px;
 
-    overflow: visible;
+    opacity: 0.75;
 
-    opacity: 0;
-
-    filter:
-        drop-shadow(
-            0 4px 5px
-            rgba(70, 65, 75, 0.14)
-        );
-}
-
-
-/* ---------- Bird colors ---------- */
-
-.bird-body,
-.bird-head {
-    fill: #70757c;
-}
-
-.bird-wing {
-    fill: #5c6269;
-}
-
-.bird-tail {
-    fill: #555b62;
-}
-
-.bird-beak {
-    fill: #d59a61;
-}
-
-.bird-eye {
-    fill: #292b2f;
-}
-
-
-/* =========================================================
-   SWALLOW 1
-   ========================================================= */
-
-.swallow-1 {
-    width: 88px;
-
-    top: 12%;
-    left: 57%;
+    filter: drop-shadow(
+        0 3px 5px rgba(100, 70, 80, 0.12)
+    );
 
     animation:
-        swallowFlight1
-        8s
-        ease-in-out
-        infinite;
+        birdFloat 5s ease-in-out infinite;
 }
 
-
-/* =========================================================
-   SWALLOW 2
-   ========================================================= */
-
-.swallow-2 {
-    width: 62px;
-
-    top: 28%;
-    right: 7%;
-
-    opacity: 0.65;
-
-    animation:
-        swallowFlight2
-        9s
-        ease-in-out
-        1s
-        infinite;
+.birds span:nth-child(1) {
+    top: 18%;
+    left: 61%;
 }
 
-
-/* =========================================================
-   SWALLOW 3
-   ========================================================= */
-
-.swallow-3 {
-    width: 72px;
-
-    top: 46%;
-    left: 8%;
-
-    opacity: 0.58;
-
-    animation:
-        swallowFlight3
-        10s
-        ease-in-out
-        0.5s
-        infinite;
+.birds span:nth-child(2) {
+    top: 31%;
+    left: 70%;
+    animation-delay: 0.8s;
 }
 
+.birds span:nth-child(3) {
+    top: 48%;
+    left: 23%;
+    animation-delay: 1.3s;
+}
 
-/* =========================================================
-   SWALLOW 4
-   ========================================================= */
-
-.swallow-4 {
-    width: 55px;
-
+.birds span:nth-child(4) {
     top: 65%;
-    left: 13%;
-
-    opacity: 0.42;
-
-    animation:
-        swallowFlight4
-        11s
-        ease-in-out
-        1.5s
-        infinite;
+    left: 19%;
+    animation-delay: 2s;
 }
 
-
-/* =========================================================
-   SWALLOW 5
-   ========================================================= */
-
-.swallow-5 {
-    width: 68px;
-
-    top: 52%;
-    right: 5%;
-
-    opacity: 0.5;
-
-    animation:
-        swallowFlight5
-        9.5s
-        ease-in-out
-        2s
-        infinite;
+.birds span:nth-child(5) {
+    top: 56%;
+    left: 73%;
+    animation-delay: 1s;
 }
 
-
-/* =========================================================
-   BIRD BODY MOVEMENT
-   ========================================================= */
-
-.swallow-body {
-    transform-origin: 80px 52px;
-
-    animation:
-        birdBodyFloat
-        1.25s
-        ease-in-out
-        infinite;
+.birds span:nth-child(6) {
+    top: 22%;
+    left: 25%;
+    animation-delay: 2.5s;
 }
 
-@keyframes birdBodyFloat {
+@keyframes birdFloat {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(-3deg);
     }
 
     50% {
-        transform: translateY(-2px);
+        transform: translateY(-12px) rotate(3deg);
     }
 }
 
 
-/* =========================================================
-   BIRD FLIGHT 1
-   ========================================================= */
-
-@keyframes swallowFlight1 {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            translate(60px, 25px)
-            rotate(8deg)
-            scale(0.75);
-    }
-
-    15% {
-        opacity: 0.8;
-    }
-
-    50% {
-        transform:
-            translate(-20px, -15px)
-            rotate(-4deg)
-            scale(1);
-    }
-
-    80% {
-        opacity: 0.8;
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translate(-120px, 30px)
-            rotate(8deg)
-            scale(0.8);
-    }
-}
-
-
-/* =========================================================
-   BIRD FLIGHT 2
-   ========================================================= */
-
-@keyframes swallowFlight2 {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            translate(30px, -20px)
-            rotate(-8deg);
-    }
-
-    15% {
-        opacity: 0.65;
-    }
-
-    50% {
-        transform:
-            translate(-35px, 18px)
-            rotate(5deg);
-    }
-
-    80% {
-        opacity: 0.65;
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translate(-90px, -15px)
-            rotate(-7deg);
-    }
-}
-
-
-/* =========================================================
-   BIRD FLIGHT 3
-   ========================================================= */
-
-@keyframes swallowFlight3 {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            translate(-35px, 15px)
-            rotate(6deg);
-    }
-
-    15% {
-        opacity: 0.58;
-    }
-
-    50% {
-        transform:
-            translate(30px, -20px)
-            rotate(-5deg);
-    }
-
-    80% {
-        opacity: 0.58;
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translate(100px, 10px)
-            rotate(5deg);
-    }
-}
-
-
-/* =========================================================
-   BIRD FLIGHT 4
-   ========================================================= */
-
-@keyframes swallowFlight4 {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            translate(-20px, 20px)
-            rotate(-5deg)
-            scale(0.85);
-    }
-
-    15% {
-        opacity: 0.42;
-    }
-
-    50% {
-        transform:
-            translate(35px, -15px)
-            rotate(4deg)
-            scale(1);
-    }
-
-    80% {
-        opacity: 0.42;
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translate(100px, 15px)
-            rotate(-4deg)
-            scale(0.8);
-    }
-}
-
-
-/* =========================================================
-   BIRD FLIGHT 5
-   ========================================================= */
-
-@keyframes swallowFlight5 {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            translate(40px, 10px)
-            rotate(7deg);
-    }
-
-    15% {
-        opacity: 0.5;
-    }
-
-    50% {
-        transform:
-            translate(-30px, -20px)
-            rotate(-6deg);
-    }
-
-    80% {
-        opacity: 0.5;
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translate(-110px, 15px)
-            rotate(7deg);
-    }
-}
-
-
-/* =========================================================
-   SCENE 1 CONTENT
-   ========================================================= */
+/* ---------- Scene 1 Content ---------- */
 
 .scene1-content {
     justify-content: flex-start;
-
     padding-top: 17vh;
 }
 
 
-/* =========================================================
-   TEXT
-   ========================================================= */
+/* ---------- Text ---------- */
 
 .welcome-text {
     position: relative;
-
-    z-index: 30;
+    z-index: 20;
 
     text-align: center;
 
-    margin-bottom: 62px;
+    margin-bottom: 65px;
 }
 
 .wish-text {
-    font-size:
-        clamp(
-            28px,
-            8vw,
-            40px
-        );
-
+    font-size: clamp(28px, 8vw, 40px);
     font-weight: bold;
 
     color: #c9578d;
@@ -548,17 +210,11 @@ img {
     margin-bottom: 22px;
 
     text-shadow:
-        0 3px 12px
-        rgba(201, 87, 141, 0.12);
+        0 3px 12px rgba(201, 87, 141, 0.12);
 }
 
 .instruction {
-    font-size:
-        clamp(
-            17px,
-            4.5vw,
-            23px
-        );
+    font-size: clamp(17px, 4.5vw, 23px);
 
     color: #927782;
 
@@ -574,7 +230,6 @@ img {
     position: relative;
 
     width: min(330px, 82vw);
-
     height: 310px;
 
     flex-shrink: 0;
@@ -596,10 +251,9 @@ img {
     left: 50%;
     top: 0;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
-    z-index: 60;
+    z-index: 50;
 
     cursor: pointer;
 
@@ -617,20 +271,13 @@ img {
     border-radius: 14px;
 
     box-shadow:
-        inset 3px 0 5px
-        rgba(255,255,255,0.8),
-
-        inset -3px 0 5px
-        rgba(200,100,140,0.12),
-
-        0 5px 12px
-        rgba(160,80,110,0.12);
+        inset 3px 0 5px rgba(255, 255, 255, 0.8),
+        inset -3px 0 5px rgba(200, 100, 140, 0.12),
+        0 5px 12px rgba(160, 80, 110, 0.12);
 }
 
 
-/* =========================================================
-   CANDLE DECORATION
-   ========================================================= */
+/* ---------- Candle decoration ---------- */
 
 .candle-decoration {
     position: absolute;
@@ -641,20 +288,25 @@ img {
     left: 50%;
     top: -9px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     background: #514048;
 
     border-radius: 3px;
 
-    z-index: 5;
+    z-index: 3;
 }
 
 
 /* =========================================================
    FLAME
    ========================================================= */
+
+/*
+   خیلی مهم:
+   شعله داخل .candle قرار دارد.
+   بنابراین موقعیتش مستقیماً نسبت به خود شمع محاسبه می‌شود.
+*/
 
 .candle .flame {
     position: absolute;
@@ -665,8 +317,7 @@ img {
     left: 50%;
     top: -43px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     z-index: 100;
 
@@ -680,7 +331,7 @@ img {
             #fff8a0 0%,
             #ffd83d 35%,
             #ff9f00 68%,
-            rgba(255,150,0,0) 70%
+            rgba(255, 150, 0, 0) 70%
         );
 
     border-radius:
@@ -691,16 +342,10 @@ img {
 
     filter:
         drop-shadow(
-            0 0 12px
-            rgba(255,177,30,0.75)
+            0 0 12px rgba(255, 177, 30, 0.75)
         );
 
-    animation:
-        flameMove
-        0.8s
-        ease-in-out
-        infinite
-        alternate;
+    animation: flameMove 0.8s ease-in-out infinite alternate;
 }
 
 .flame-inner {
@@ -712,19 +357,17 @@ img {
     left: 50%;
     bottom: 5px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     background:
         radial-gradient(
             ellipse,
             #fffef0 0%,
             #fff6a0 65%,
-            rgba(255,255,255,0) 70%
+            rgba(255, 255, 255, 0) 70%
         );
 
-    border-radius:
-        50% 50% 45% 45%;
+    border-radius: 50% 50% 45% 45%;
 
     filter: blur(0.3px);
 }
@@ -747,25 +390,24 @@ img {
 }
 
 
-/* =========================================================
-   FLAME OFF
-   ========================================================= */
+/* وقتی شمع خاموش شد */
 
 .flame.off {
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        scale(0.3);
+
     pointer-events: none;
 
-    animation:
-        flameOff
-        0.35s
-        ease
-        forwards;
+    animation: flameOff 0.35s ease forwards;
 }
 
 @keyframes flameOff {
 
     from {
         opacity: 1;
-
         transform:
             translateX(-50%)
             scale(1);
@@ -773,7 +415,6 @@ img {
 
     to {
         opacity: 0;
-
         transform:
             translateX(-50%)
             translateY(-8px)
@@ -782,9 +423,7 @@ img {
 }
 
 
-/* =========================================================
-   FLAME GLOW
-   ========================================================= */
+/* ---------- Flame glow ---------- */
 
 .flame-glow {
     position: absolute;
@@ -795,8 +434,7 @@ img {
     left: 50%;
     top: -25px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     z-index: 40;
 
@@ -805,26 +443,20 @@ img {
     background:
         radial-gradient(
             circle,
-            rgba(255,192,52,0.25) 0%,
-            rgba(255,192,52,0.08) 40%,
-            transparent 70%
+            rgba(255, 192, 52, 0.25) 0%,
+            rgba(255, 192, 52, 0.08) 40%,
+            rgba(255, 192, 52, 0) 70%
         );
 
     pointer-events: none;
 
-    animation:
-        glowPulse
-        1s
-        ease-in-out
-        infinite
-        alternate;
+    animation: glowPulse 1s ease-in-out infinite alternate;
 }
 
 @keyframes glowPulse {
 
     from {
         opacity: 0.6;
-
         transform:
             translateX(-50%)
             scale(0.95);
@@ -832,7 +464,6 @@ img {
 
     to {
         opacity: 1;
-
         transform:
             translateX(-50%)
             scale(1.08);
@@ -853,8 +484,7 @@ img {
     left: 50%;
     top: -55px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     z-index: 90;
 
@@ -873,8 +503,7 @@ img {
     width: 13px;
     height: 25px;
 
-    background:
-        rgba(170,160,170,0.25);
+    background: rgba(170, 160, 170, 0.25);
 
     border-radius: 50%;
 
@@ -882,11 +511,7 @@ img {
 
     opacity: 0;
 
-    animation:
-        smokeRise
-        2s
-        ease-out
-        forwards;
+    animation: smokeRise 2s ease-out forwards;
 }
 
 .smoke span:nth-child(1) {
@@ -897,14 +522,12 @@ img {
 .smoke span:nth-child(2) {
     left: 20px;
     top: 5px;
-
     animation-delay: 0.2s;
 }
 
 .smoke span:nth-child(3) {
     left: 39px;
     top: -8px;
-
     animation-delay: 0.4s;
 }
 
@@ -912,7 +535,6 @@ img {
 
     0% {
         opacity: 0;
-
         transform:
             translateY(10px)
             scale(0.7);
@@ -924,7 +546,6 @@ img {
 
     100% {
         opacity: 0;
-
         transform:
             translateY(-55px)
             translateX(8px)
@@ -934,7 +555,7 @@ img {
 
 
 /* =========================================================
-   CAKE LAYERS
+   CAKE BODY
    ========================================================= */
 
 .cake-layer {
@@ -942,8 +563,7 @@ img {
 
     left: 50%;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     width: 285px;
 
@@ -955,8 +575,7 @@ img {
         );
 
     box-shadow:
-        0 12px 20px
-        rgba(170,90,120,0.13);
+        0 12px 20px rgba(170, 90, 120, 0.13);
 }
 
 .cake-layer-top {
@@ -965,8 +584,7 @@ img {
     height: 75px;
 
     border-radius:
-        18px 18px
-        8px 8px;
+        18px 18px 8px 8px;
 
     z-index: 10;
 }
@@ -977,8 +595,7 @@ img {
     height: 82px;
 
     border-radius:
-        10px 10px
-        28px 28px;
+        10px 10px 28px 28px;
 
     z-index: 9;
 
@@ -991,9 +608,7 @@ img {
 }
 
 
-/* =========================================================
-   CAKE CREAM
-   ========================================================= */
+/* ---------- Cream top ---------- */
 
 .cake-cream-top {
     position: absolute;
@@ -1004,18 +619,16 @@ img {
     left: 50%;
     top: 128px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
-    background: #ffffff;
+    background: #fff;
 
     border-radius: 50%;
 
     z-index: 20;
 
     box-shadow:
-        0 4px 10px
-        rgba(180,110,140,0.12);
+        0 4px 10px rgba(180, 110, 140, 0.12);
 }
 
 .cake-cream-top span {
@@ -1026,7 +639,7 @@ img {
 
     top: 22px;
 
-    background: #ffffff;
+    background: #fff;
 
     border-radius: 50%;
 }
@@ -1052,9 +665,7 @@ img {
 }
 
 
-/* =========================================================
-   CAKE DRIP
-   ========================================================= */
+/* ---------- Cake drip ---------- */
 
 .cake-drip {
     position: absolute;
@@ -1065,20 +676,15 @@ img {
     left: 50%;
     top: 18px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
-    background:
-        rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
 
-    border-radius:
-        0 0 15px 15px;
+    border-radius: 0 0 15px 15px;
 }
 
 
-/* =========================================================
-   CAKE STRIPE
-   ========================================================= */
+/* ---------- Cake stripe ---------- */
 
 .cake-stripe {
     position: absolute;
@@ -1089,14 +695,11 @@ img {
     left: 0;
     top: 38px;
 
-    background:
-        rgba(255,205,225,0.65);
+    background: rgba(255, 205, 225, 0.65);
 }
 
 
-/* =========================================================
-   CAKE SPRINKLES
-   ========================================================= */
+/* ---------- Sprinkles ---------- */
 
 .cake-sprinkles {
     position: absolute;
@@ -1107,8 +710,7 @@ img {
     width: 250px;
     height: 90px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     z-index: 25;
 
@@ -1175,9 +777,7 @@ img {
 }
 
 
-/* =========================================================
-   PLATE
-   ========================================================= */
+/* ---------- Plate ---------- */
 
 .cake-plate {
     position: absolute;
@@ -1188,8 +788,7 @@ img {
     left: 50%;
     bottom: 0;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     background:
         radial-gradient(
@@ -1202,8 +801,7 @@ img {
     border-radius: 50%;
 
     box-shadow:
-        0 10px 20px
-        rgba(160,100,130,0.12);
+        0 10px 20px rgba(160, 100, 130, 0.12);
 
     z-index: 5;
 }
@@ -1220,7 +818,7 @@ img {
 
     pointer-events: none;
 
-    z-index: 110;
+    z-index: 100;
 
     opacity: 0;
 }
@@ -1243,11 +841,7 @@ img {
 }
 
 .particles.show span {
-    animation:
-        particlePop
-        1.2s
-        ease-out
-        forwards;
+    animation: particlePop 1.2s ease-out forwards;
 }
 
 .particles span:nth-child(1) {
@@ -1313,17 +907,16 @@ img {
 
     0% {
         opacity: 1;
-
-        transform:
-            translate(0,0)
-            scale(0.5);
+        transform: translate(0, 0) scale(0.5);
     }
 
     100% {
         opacity: 0;
-
         transform:
-            translateY(-100px)
+            translate(
+                calc((var(--x, 1) - 0.5) * 150px),
+                -100px
+            )
             scale(1.4);
     }
 }
@@ -1349,15 +942,14 @@ img {
             #c65088
         );
 
-    color: #ffffff;
+    color: white;
 
     font-size: 16px;
 
     cursor: pointer;
 
     box-shadow:
-        0 8px 20px
-        rgba(190,75,125,0.25);
+        0 8px 20px rgba(190, 75, 125, 0.25);
 
     transition:
         transform 0.2s ease,
@@ -1368,8 +960,7 @@ img {
     transform: scale(0.95);
 
     box-shadow:
-        0 4px 10px
-        rgba(190,75,125,0.2);
+        0 4px 10px rgba(190, 75, 125, 0.2);
 }
 
 
@@ -1393,10 +984,7 @@ img {
     opacity: 0.7;
 
     animation:
-        birdFloat
-        4s
-        ease-in-out
-        infinite;
+        birdFloat 4s ease-in-out infinite;
 }
 
 .scene2-background span:nth-child(1) {
@@ -1424,60 +1012,16 @@ img {
     right: 7%;
 }
 
+.scene2-content {
+    text-align: center;
+}
+
 .birthday-symbol {
     font-size: 38px;
 
     margin-bottom: 18px;
 
-    animation:
-        softPulse
-        2s
-        infinite;
-}
-
-.birthday-title {
-    font-size:
-        clamp(
-            34px,
-            10vw,
-            48px
-        );
-
-    color: #c65389;
-
-    margin-bottom: 12px;
-}
-
-.birthday-name {
-    font-size:
-        clamp(
-            26px,
-            7vw,
-            36px
-        );
-
-    color: #df769f;
-
-    margin-bottom: 20px;
-}
-
-.birthday-line {
-    width: 70px;
-    height: 2px;
-
-    background: #e6a0bb;
-
-    margin:
-        0 auto
-        22px;
-}
-
-.birthday-small-text {
-    color: #927782;
-
-    font-size: 16px;
-
-    margin-bottom: 35px;
+    animation: softPulse 2s infinite;
 }
 
 @keyframes softPulse {
@@ -1492,20 +1036,37 @@ img {
     }
 }
 
-@keyframes birdFloat {
+.birthday-title {
+    font-size: clamp(34px, 10vw, 48px);
 
-    0%,
-    100% {
-        transform:
-            translateY(0)
-            rotate(-3deg);
-    }
+    color: #c65389;
 
-    50% {
-        transform:
-            translateY(-12px)
-            rotate(3deg);
-    }
+    margin-bottom: 12px;
+}
+
+.birthday-name {
+    font-size: clamp(26px, 7vw, 36px);
+
+    color: #df769f;
+
+    margin-bottom: 20px;
+}
+
+.birthday-line {
+    width: 70px;
+    height: 2px;
+
+    background: #e6a0bb;
+
+    margin: 0 auto 22px;
+}
+
+.birthday-small-text {
+    color: #927782;
+
+    font-size: 16px;
+
+    margin-bottom: 35px;
 }
 
 
@@ -1532,33 +1093,37 @@ img {
 
     line-height: 2;
 
-    animation:
-        messageAppear
-        0.8s
-        ease
-        forwards;
+    animation: messageAppear 0.8s ease forwards;
 }
 
 .message-one {
     font-size: 30px;
-
     animation-delay: 0.2s;
 }
 
 .message-two {
     font-size: 19px;
-
     margin-top: 18px;
-
     animation-delay: 0.9s;
 }
 
 .message-three {
     font-size: 18px;
-
     margin-top: 15px;
-
     animation-delay: 1.6s;
+}
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .tiny-heart {
@@ -1566,31 +1131,12 @@ img {
 
     color: #d86598;
 
-    margin:
-        25px 0
-        35px;
-}
-
-@keyframes messageAppear {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
+    margin: 25px 0 35px;
 }
 
 
 /* =========================================================
-   SCENE 4 + 5
+   SCENE 4
    ========================================================= */
 
 .scene4-content,
@@ -1623,21 +1169,16 @@ img {
 .photo-card {
     position: relative;
 
-    width:
-        min(
-            280px,
-            75vw
-        );
+    width: min(280px, 75vw);
 
     padding: 8px;
 
-    background: #ffffff;
+    background: white;
 
     border-radius: 18px;
 
     box-shadow:
-        0 15px 35px
-        rgba(100,60,80,0.16);
+        0 15px 35px rgba(100, 60, 80, 0.16);
 
     overflow: hidden;
 
@@ -1665,28 +1206,27 @@ img {
             transparent 70%
         );
 
-    transform:
-        translateX(-100%);
+    transform: translateX(-100%);
 
-    animation:
-        shine
-        4s
-        infinite;
+    animation: shine 4s infinite;
 }
 
 @keyframes shine {
 
     0% {
-        transform:
-            translateX(-100%);
+        transform: translateX(-100%);
     }
 
     35%,
     100% {
-        transform:
-            translateX(100%);
+        transform: translateX(100%);
     }
 }
+
+
+/* =========================================================
+   SCENE 5
+   ========================================================= */
 
 .fake-surprise {
     font-size: 50px;
@@ -1745,10 +1285,7 @@ img {
     opacity: 0.45;
 
     animation:
-        musicFloat
-        4s
-        ease-in-out
-        infinite;
+        musicFloat 4s ease-in-out infinite;
 }
 
 .music-background span:nth-child(1) {
@@ -1785,15 +1322,11 @@ img {
 
     0%,
     100% {
-        transform:
-            translateY(0)
-            rotate(-5deg);
+        transform: translateY(0) rotate(-5deg);
     }
 
     50% {
-        transform:
-            translateY(-15px)
-            rotate(5deg);
+        transform: translateY(-15px) rotate(5deg);
     }
 }
 
@@ -1814,12 +1347,7 @@ img {
 
     color: #bd4f83;
 
-    font-size:
-        clamp(
-            22px,
-            6vw,
-            30px
-        );
+    font-size: clamp(22px, 6vw, 30px);
 
     margin-bottom: 25px;
 }
@@ -1827,34 +1355,20 @@ img {
 .music-card {
     position: relative;
 
-    width:
-        min(
-            330px,
-            88vw
-        );
+    width: min(330px, 88vw);
 
     padding: 18px;
 
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.92
-        );
+    background: rgba(255,255,255,0.92);
 
     border-radius: 25px;
 
     box-shadow:
-        0 18px 40px
-        rgba(120,70,95,0.15);
+        0 18px 40px rgba(120, 70, 95, 0.15);
 
     display: grid;
 
-    grid-template-columns:
-        70px
-        1fr
-        48px;
+    grid-template-columns: 70px 1fr 48px;
 
     gap: 12px;
 
@@ -1901,6 +1415,7 @@ img {
 
 .music-equalizer span {
     width: 4px;
+
     height: 8px;
 
     background: #d66b99;
@@ -1908,13 +1423,9 @@ img {
     border-radius: 5px;
 }
 
-.music-card.playing .music-equalizer span {
-    animation:
-        equalizer
-        0.7s
-        ease-in-out
-        infinite
-        alternate;
+.music-card.playing
+.music-equalizer span {
+    animation: equalizer 0.7s ease-in-out infinite alternate;
 }
 
 .music-equalizer span:nth-child(2) {
@@ -1954,15 +1465,14 @@ img {
 
     background: #cf6092;
 
-    color: #ffffff;
+    color: white;
 
     font-size: 18px;
 
     cursor: pointer;
 
     box-shadow:
-        0 6px 15px
-        rgba(190,75,125,0.25);
+        0 6px 15px rgba(190, 75, 125, 0.25);
 }
 
 .music-progress {
@@ -1993,7 +1503,6 @@ img {
     grid-column: 1 / 4;
 
     display: flex;
-
     justify-content: space-between;
 
     color: #9c818c;
@@ -2046,10 +1555,7 @@ img {
     font-size: 28px;
 
     animation:
-        emotionalFloat
-        5s
-        ease-in-out
-        infinite;
+        emotionalFloat 5s ease-in-out infinite;
 }
 
 .emotional-background span:nth-child(1) {
@@ -2081,13 +1587,11 @@ img {
 
     0%,
     100% {
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 
     50% {
-        transform:
-            translateY(-10px);
+        transform: translateY(-10px);
     }
 }
 
@@ -2115,36 +1619,27 @@ img {
 
     opacity: 0;
 
-    animation:
-        emotionalAppear
-        1s
-        ease
-        forwards;
+    animation: emotionalAppear 1s ease forwards;
 }
 
 .emotional-line-1 {
     font-size: 27px;
-
     animation-delay: 0.3s;
 }
 
 .emotional-line-2 {
     font-size: 18px;
-
     animation-delay: 1s;
 }
 
 .emotional-line-3 {
     font-size: 17px;
-
     animation-delay: 1.8s;
 }
 
 .emotional-line-4 {
     font-size: 18px;
-
     color: #c55889;
-
     animation-delay: 2.6s;
 }
 
@@ -2152,16 +1647,12 @@ img {
 
     from {
         opacity: 0;
-
-        transform:
-            translateY(15px);
+        transform: translateY(15px);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 }
 
@@ -2171,8 +1662,7 @@ img {
 
     background: #e1a0ba;
 
-    margin:
-        25px auto;
+    margin: 25px auto;
 }
 
 .final-wish {
@@ -2193,15 +1683,14 @@ img {
 
     border-radius: 50%;
 
-    background: #ffffff;
+    background: white;
 
-    color: #c85b8d;
+    color: #c95b8c;
 
-    font-size: 24px;
+    font-size: 25px;
 
     box-shadow:
-        0 8px 25px
-        rgba(170,80,120,0.15);
+        0 8px 25px rgba(150, 80, 110, 0.15);
 
     cursor: pointer;
 }
@@ -2216,20 +1705,17 @@ img {
         radial-gradient(
             circle at 50% 35%,
             #ffffff 0%,
-            #fff8fc 50%,
-            #fbe8f1 100%
+            #fff8fb 45%,
+            #fbeaf2 100%
         );
 }
 
 .final-content {
     text-align: center;
-
-    padding-left: 25px;
-    padding-right: 25px;
 }
 
 .final-small {
-    color: #c66b91;
+    color: #9d7b89;
 
     font-size: 17px;
 
@@ -2237,69 +1723,75 @@ img {
 }
 
 .final-title {
-    color: #c45186;
+    font-family: Georgia, serif;
 
-    font-family:
-        Georgia,
-        serif;
+    font-size: clamp(38px, 11vw, 58px);
 
-    font-size:
-        clamp(
-            38px,
-            11vw,
-            58px
-        );
+    color: #c45286;
 
     margin-bottom: 8px;
 }
 
 .final-name {
-    color: #df769f;
+    font-family: Georgia, serif;
 
-    font-size:
-        clamp(
-            30px,
-            8vw,
-            42px
-        );
+    font-size: clamp(28px, 8vw, 40px);
+
+    color: #df7ba3;
 
     margin-bottom: 20px;
 }
 
 .final-line {
-    width: 80px;
+    width: 90px;
     height: 2px;
 
-    background: #e0a0b9;
+    background: #e3a1ba;
 
-    margin:
-        0 auto
-        25px;
+    margin: 0 auto 25px;
 }
 
 .final-message {
-    color: #745b65;
+    max-width: 330px;
+
+    color: #765e68;
 
     font-size: 17px;
 
     line-height: 2;
 
-    max-width: 330px;
+    margin-bottom: 25px;
+}
+
+.final-made {
+    color: #ae8b98;
+
+    font-size: 13px;
 
     margin-bottom: 30px;
 }
 
-.final-made {
-    color: #b48b9b;
+.restart-button {
+    border: none;
 
-    font-family:
-        Georgia,
-        serif;
+    background: rgba(255,255,255,0.8);
 
-    font-size: 15px;
+    color: #c45a89;
 
-    margin-bottom: 35px;
+    padding: 11px 22px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(130, 70, 95, 0.1);
 }
+
+
+/* ---------- Final birds ---------- */
 
 .final-birds {
     position: absolute;
@@ -2307,58 +1799,52 @@ img {
     inset: 0;
 
     pointer-events: none;
-
-    z-index: 5;
 }
 
 .final-birds span {
     position: absolute;
 
-    font-size: 27px;
+    font-size: 30px;
 
-    opacity: 0.5;
+    opacity: 0.65;
 
     animation:
-        finalBird
-        7s
-        ease-in-out
-        infinite;
+        finalBird 6s ease-in-out infinite;
 }
 
 .final-birds span:nth-child(1) {
+    top: 20%;
     left: 15%;
-    top: 25%;
 }
 
 .final-birds span:nth-child(2) {
-    right: 15%;
     top: 35%;
+    right: 15%;
 
-    animation-delay: 1.5s;
+    animation-delay: 1s;
 }
 
 .final-birds span:nth-child(3) {
-    left: 28%;
-    top: 65%;
+    top: 70%;
+    left: 20%;
 
-    animation-delay: 3s;
+    animation-delay: 2s;
 }
 
 @keyframes finalBird {
 
     0%,
     100% {
-        transform:
-            translateY(0)
-            rotate(-4deg);
+        transform: translateY(0);
     }
 
     50% {
-        transform:
-            translateY(-18px)
-            rotate(4deg);
+        transform: translateY(-18px);
     }
 }
+
+
+/* ---------- Final particles ---------- */
 
 .final-particles {
     position: absolute;
@@ -2374,124 +1860,93 @@ img {
     width: 5px;
     height: 5px;
 
-    background: #e7a5bd;
-
     border-radius: 50%;
 
-    opacity: 0.5;
+    background: #e7a4bd;
+
+    opacity: 0.45;
 
     animation:
-        finalParticle
-        4s
-        ease-in-out
-        infinite;
+        finalParticle 5s ease-in-out infinite;
 }
 
 .final-particles span:nth-child(1) {
-    left: 15%;
-    top: 20%;
+    top: 15%;
+    left: 20%;
 }
 
 .final-particles span:nth-child(2) {
-    left: 30%;
-    top: 12%;
+    top: 20%;
+    left: 70%;
 }
 
 .final-particles span:nth-child(3) {
-    right: 20%;
-    top: 18%;
+    top: 35%;
+    left: 12%;
 }
 
 .final-particles span:nth-child(4) {
-    right: 12%;
     top: 45%;
+    left: 85%;
 }
 
 .final-particles span:nth-child(5) {
-    left: 10%;
-    top: 55%;
+    top: 60%;
+    left: 15%;
 }
 
 .final-particles span:nth-child(6) {
-    left: 25%;
     top: 75%;
+    left: 75%;
 }
 
 .final-particles span:nth-child(7) {
-    right: 28%;
-    top: 70%;
+    top: 80%;
+    left: 30%;
 }
 
 .final-particles span:nth-child(8) {
-    right: 10%;
-    top: 78%;
+    top: 30%;
+    left: 50%;
 }
 
 .final-particles span:nth-child(9) {
-    left: 45%;
-    top: 10%;
+    top: 65%;
+    left: 50%;
 }
 
 .final-particles span:nth-child(10) {
-    right: 40%;
-    top: 85%;
+    top: 25%;
+    left: 35%;
 }
 
 .final-particles span:nth-child(11) {
-    left: 5%;
-    top: 35%;
+    top: 55%;
+    left: 65%;
 }
 
 .final-particles span:nth-child(12) {
-    right: 5%;
-    top: 60%;
+    top: 85%;
+    left: 60%;
 }
 
 @keyframes finalParticle {
 
     0%,
     100% {
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0);
+        opacity: 0.25;
     }
 
     50% {
-        transform:
-            translateY(-12px)
-            scale(1.4);
+        transform: translateY(-15px);
+        opacity: 0.65;
     }
 }
 
-.restart-button {
-    border: none;
-
-    background: transparent;
-
-    color: #bd7b97;
-
-    font-size: 14px;
-
-    cursor: pointer;
-}
-
 
 /* =========================================================
-   TOUCH / INTERACTION
-   ========================================================= */
-
-button,
-.flame,
-.candle {
-    -webkit-user-select: none;
-    user-select: none;
-
-    -webkit-tap-highlight-color: transparent;
-}
-
-
-/* =========================================================
-   SMALL PHONES
+   MOBILE
    ========================================================= */
 
 @media (max-width: 380px) {
@@ -2513,37 +1968,24 @@ button,
     }
 
     .cake {
-        transform:
-            scale(0.9);
-
-        transform-origin:
-            top center;
+        transform: scale(0.9);
+        transform-origin: top center;
     }
 
-    .swallow-1 {
-        width: 72px;
+    .message-two,
+    .message-three {
+        font-size: 16px;
     }
 
-    .swallow-2 {
-        width: 52px;
+    .music-card {
+        width: 94vw;
     }
 
-    .swallow-3 {
-        width: 60px;
-    }
-
-    .swallow-4 {
-        width: 46px;
-    }
-
-    .swallow-5 {
-        width: 55px;
-    }
 }
 
 
 /* =========================================================
-   SHORT PHONES
+   VERY SHORT PHONES
    ========================================================= */
 
 @media (max-height: 700px) {
@@ -2557,47 +1999,37 @@ button,
     }
 
     .cake {
-        transform:
-            scale(0.82);
-
-        transform-origin:
-            top center;
+        transform: scale(0.82);
+        transform-origin: top center;
     }
 
-    .wish-text {
-        margin-bottom: 12px;
-    }
-
-    .instruction {
-        font-size: 16px;
-    }
 }
 
 
 /* =========================================================
-   VERY SMALL PHONES
+   TOUCH / SELECTION
    ========================================================= */
 
-@media (max-width: 340px) {
+button,
+.candle,
+.flame,
+.photo-card,
+.music-card {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
 
-    .scene1-content {
-        padding-top: 8vh;
-    }
 
-    .cake {
-        transform:
-            scale(0.76);
-    }
+/* =========================================================
+   IMPORTANT CANDLE CLICK FIX
+   ========================================================= */
 
-    .welcome-text {
-        margin-bottom: 25px;
-    }
+.candle,
+.candle .flame {
+    pointer-events: auto;
+}
 
-    .wish-text {
-        font-size: 25px;
-    }
-
-    .instruction {
-        font-size: 15px;
-    }
+.candle {
+    isolation: isolate;
 }
