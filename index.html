@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -23,419 +22,98 @@
 <main id="app">
 
 
-    <!-- ==================== SCENE 1 ==================== -->
+    <!-- =====================================================
+         SCENE 1
+         ===================================================== -->
 
-<!-- ==================== SCENE 1 ==================== -->
+    <section id="scene1" class="scene active">
 
-<section id="scene1" class="scene active">
+        <!-- پرستوها -->
 
-    <!-- پرستوها -->
+        <div class="birds">
 
-    <div class="birds">
-
-        <span>🕊️</span>
-        <span>🕊️</span>
-        <span>🕊️</span>
-        <span>🕊️</span>
-        <span>🕊️</span>
-        <span>🕊️</span>
-
-    </div>
-
-
-    <div class="scene-content scene1-content">
-
-
-        <!-- متن -->
-
-        <div class="welcome-text">
-
-            <p class="wish-text">
-                یه آرزو کن... ✨
-            </p>
-
-            <p class="instruction">
-                حالا با دستت شمعو خاموش کن 🕯️
-            </p>
+            <span>🕊️</span>
+            <span>🕊️</span>
+            <span>🕊️</span>
+            <span>🕊️</span>
+            <span>🕊️</span>
+            <span>🕊️</span>
 
         </div>
 
 
-        <!-- کیک -->
+        <div class="scene-content scene1-content">
 
-        <div class="cake">
 
-            <!-- نور اطراف شعله -->
+            <!-- متن -->
 
-            <div class="flame-glow"></div>
+            <div class="welcome-text">
 
-
-            <!-- شعله -->
-
-            <div
-                id="flame"
-                class="flame"
-                onclick="blowCandle()"
-            >
-
-                <div class="flame-inner"></div>
-
-            </div>
-
-
-            <!-- دود -->
-
-            <div id="smoke" class="smoke">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </div>
-
-
-            <!-- شمع -->
-
-            <div class="candle">
-
-                <div class="candle-decoration"></div>
-
-            </div>
-
-
-            <!-- تزئین روی کیک -->
-
-            <div class="cake-cream-top">
-
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </div>
-
-
-            <!-- لایه بالایی -->
-
-            <div class="cake-layer cake-layer-top">
-
-                <div class="cake-drip"></div>
-
-            </div>
-
-
-            <!-- لایه پایینی -->
-
-            <div class="cake-layer cake-layer-bottom">
-
-                <div class="cake-stripe"></div>
-
-            </div>
-
-
-            <!-- تزئینات -->
-
-            <div class="cake-sprinkles">
-
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </div>
-
-
-            <!-- بشقاب -->
-
-            <div class="cake-plate"></div>
-
-        </div>
-
-
-        <!-- ذرات نور -->
-
-        <div id="particles" class="particles">
-
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- ==================== SCENE 2 ==================== -->
-
-<section id="scene2" class="scene">
-
-    <div class="scene2-background">
-
-        <span>🕊️</span>
-        <span>🕊️</span>
-        <span>🕊️</span>
-        <span>🕊️</span>
-        <span>🕊️</span>
-
-    </div>
-
-
-    <div class="scene-content scene2-content">
-
-        <div class="birthday-symbol">
-            ✨
-        </div>
-
-
-        <h1 class="birthday-title">
-            تولدت مبارک
-        </h1>
-
-
-        <h2 class="birthday-name">
-            پرستو 🌸
-        </h2>
-
-
-        <div class="birthday-line"></div>
-
-
-        <p class="birthday-small-text">
-            امروز یه روز معمولی نیست...
-        </p>
-
-
-        <button
-            type="button"
-            class="story-button"
-            onclick="nextScene(3)"
-        >
-            ادامه 🌸
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================== SCENE 3 ==================== -->
-
-<section id="scene3" class="scene">
-
-    <div class="scene-content scene3-content">
-
-
-        <div class="letter-decoration">
-            ✦
-        </div>
-
-
-        <p class="message message-one">
-            خب...
-        </p>
-
-
-        <p class="message message-two">
-            قرار نبود چیز خیلی خاصی باشه...
-        </p>
-
-
-        <p class="message message-three">
-            ولی خب، برای تو که نمی‌شه
-            یه تبریک معمولی نوشت :)
-        </p>
-
-
-        <div class="tiny-heart">
-            ♡
-        </div>
-
-
-        <button
-            type="button"
-            class="story-button"
-            onclick="nextScene(4)"
-        >
-            ادامه بده 🌸
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================== SCENE 4 ==================== -->
-
-<section id="scene4" class="scene">
-
-    <div class="scene-content scene4-content">
-
-
-        <p class="surprise-label">
-            راستی...
-        </p>
-
-
-        <h2 class="surprise-title">
-            یه چیز مهم 👀
-        </h2>
-
-
-        <p class="surprise-text">
-            یه سورپرایز دیگه هم هست!
-        </p>
-
-
-        <div class="photo-card">
-
-            <div class="photo-shine"></div>
-
-            <img
-                src="images/joke1.jpg"
-                alt="سورپرایز"
-            >
-
-        </div>
-
-
-        <button
-            type="button"
-            class="story-button surprise-button"
-            onclick="nextScene(5)"
-        >
-            بزن ببینم 😂
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================== SCENE 5 ==================== -->
-
-<section id="scene5" class="scene">
-
-    <div class="scene-content scene5-content">
-
-
-        <div class="fake-surprise">
-            🤡
-        </div>
-
-
-        <h2 class="joke-title">
-            نه شوخی کردم 😂
-        </h2>
-
-
-        <p class="joke-subtitle">
-            فکر کردی واقعاً سورپرایزه؟ 😭
-        </p>
-
-
-        <div class="photo-card joke-card">
-
-            <div class="photo-shine"></div>
-
-            <img
-                src="images/joke2.jpg"
-                alt="شوخی"
-            >
-
-        </div>
-
-
-        <button
-            type="button"
-            class="story-button joke-button"
-            onclick="nextScene(6)"
-        >
-            مسخره 😂
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SCENE 6 - MUSIC
-     ===================================================== -->
-
-<section id="scene6" class="scene music-scene">
-
-    <div class="music-background">
-
-        <span>♪</span>
-        <span>♫</span>
-        <span>♪</span>
-        <span>♬</span>
-        <span>♪</span>
-        <span>♫</span>
-
-    </div>
-
-
-    <div class="scene-content music-content">
-
-
-        <div class="music-headphone">
-            🎧
-        </div>
-
-
-        <p class="music-intro">
-            خب...
-        </p>
-
-
-        <h2 class="music-title">
-            اینم همون آهنگی که می‌خواستی
-        </h2>
-
-
-        <div class="music-card">
-
-
-            <!-- عکس آهنگ -->
-
-            <div class="music-photo">
-
-                <img
-                    src="images/music.jpg"
-                    alt="Music"
-                >
-
-            </div>
-
-
-            <!-- اطلاعات آهنگ -->
-
-            <div class="music-info">
-
-                <p class="music-label">
-                    یه آهنگ برای تو 🎶
+                <p class="wish-text">
+                    یه آرزو کن... ✨
                 </p>
 
-                <div class="music-equalizer">
+                <p class="instruction">
+                    حالا با دستت شمعو خاموش کن 🕯️
+                </p>
+
+            </div>
+
+
+            <!-- کیک -->
+
+            <div class="cake">
+
+                <!-- نور اطراف شعله -->
+
+                <div class="flame-glow"></div>
+
+
+                <!-- شمع -->
+
+                <div
+                    class="candle"
+                    onclick="blowCandle()"
+                    role="button"
+                    aria-label="خاموش کردن شمع"
+                >
+
+                    <!-- شعله -->
+
+                    <div
+                        id="flame"
+                        class="flame"
+                    >
+
+                        <div class="flame-inner"></div>
+
+                    </div>
+
+
+                    <!-- تزئین شمع -->
+
+                    <div class="candle-decoration"></div>
+
+                </div>
+
+
+                <!-- دود -->
+
+                <div
+                    id="smoke"
+                    class="smoke"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <!-- تزئین روی کیک -->
+
+                <div class="cake-cream-top">
 
                     <span></span>
                     <span></span>
@@ -445,234 +123,607 @@
 
                 </div>
 
+
+                <!-- لایه بالایی -->
+
+                <div class="cake-layer cake-layer-top">
+
+                    <div class="cake-drip"></div>
+
+                </div>
+
+
+                <!-- لایه پایینی -->
+
+                <div class="cake-layer cake-layer-bottom">
+
+                    <div class="cake-stripe"></div>
+
+                </div>
+
+
+                <!-- تزئینات -->
+
+                <div class="cake-sprinkles">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <!-- بشقاب -->
+
+                <div class="cake-plate"></div>
+
             </div>
 
 
-            <!-- پلیر -->
+            <!-- ذرات نور -->
 
-            <button
-                id="musicButton"
-                class="music-play-button"
-                type="button"
-                onclick="playMusic()"
+            <div
+                id="particles"
+                class="particles"
             >
 
-                <span id="musicPlayIcon">
-                    ▶
-                </span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
 
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SCENE 2
+         ===================================================== -->
+
+    <section id="scene2" class="scene">
+
+        <div class="scene2-background">
+
+            <span>🕊️</span>
+            <span>🕊️</span>
+            <span>🕊️</span>
+            <span>🕊️</span>
+            <span>🕊️</span>
+
+        </div>
+
+
+        <div class="scene-content scene2-content">
+
+            <div class="birthday-symbol">
+                ✨
+            </div>
+
+
+            <h1 class="birthday-title">
+                تولدت مبارک
+            </h1>
+
+
+            <h2 class="birthday-name">
+                پرستو 🌸
+            </h2>
+
+
+            <div class="birthday-line"></div>
+
+
+            <p class="birthday-small-text">
+                امروز یه روز معمولی نیست...
+            </p>
+
+
+            <button
+                type="button"
+                class="story-button"
+                onclick="nextScene(3)"
+            >
+                ادامه 🌸
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SCENE 3
+         ===================================================== -->
+
+    <section id="scene3" class="scene">
+
+        <div class="scene-content scene3-content">
+
+
+            <div class="letter-decoration">
+                ✦
+            </div>
+
+
+            <p class="message message-one">
+                خب...
+            </p>
+
+
+            <p class="message message-two">
+                قرار نبود چیز خیلی خاصی باشه...
+            </p>
+
+
+            <p class="message message-three">
+                ولی خب، برای تو که نمی‌شه
+                یه تبریک معمولی نوشت :)
+            </p>
+
+
+            <div class="tiny-heart">
+                ♡
+            </div>
+
+
+            <button
+                type="button"
+                class="story-button"
+                onclick="nextScene(4)"
+            >
+                ادامه بده 🌸
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SCENE 4
+         ===================================================== -->
+
+    <section id="scene4" class="scene">
+
+        <div class="scene-content scene4-content">
+
+
+            <p class="surprise-label">
+                راستی...
+            </p>
+
+
+            <h2 class="surprise-title">
+                یه چیز مهم 👀
+            </h2>
+
+
+            <p class="surprise-text">
+                یه سورپرایز دیگه هم هست!
+            </p>
+
+
+            <div class="photo-card">
+
+                <div class="photo-shine"></div>
+
+                <img
+                    src="images/joke1.jpg"
+                    alt="سورپرایز"
+                >
+
+            </div>
+
+
+            <button
+                type="button"
+                class="story-button surprise-button"
+                onclick="nextScene(5)"
+            >
+                بزن ببینم 😂
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SCENE 5
+         ===================================================== -->
+
+    <section id="scene5" class="scene">
+
+        <div class="scene-content scene5-content">
+
+
+            <div class="fake-surprise">
+                🤡
+            </div>
+
+
+            <h2 class="joke-title">
+                نه شوخی کردم 😂
+            </h2>
+
+
+            <p class="joke-subtitle">
+                فکر کردی واقعاً سورپرایزه؟ 😭
+            </p>
+
+
+            <div class="photo-card joke-card">
+
+                <div class="photo-shine"></div>
+
+                <img
+                    src="images/joke2.jpg"
+                    alt="شوخی"
+                >
+
+            </div>
+
+
+            <button
+                type="button"
+                class="story-button joke-button"
+                onclick="nextScene(6)"
+            >
+                مسخره 😂
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SCENE 6 - MUSIC
+         ===================================================== -->
+
+    <section
+        id="scene6"
+        class="scene music-scene"
+    >
+
+        <div class="music-background">
+
+            <span>♪</span>
+            <span>♫</span>
+            <span>♪</span>
+            <span>♬</span>
+            <span>♪</span>
+            <span>♫</span>
+
+        </div>
+
+
+        <div class="scene-content music-content">
+
+
+            <div class="music-headphone">
+                🎧
+            </div>
+
+
+            <p class="music-intro">
+                خب...
+            </p>
+
+
+            <h2 class="music-title">
+                اینم همون آهنگی که می‌خواستی
+            </h2>
+
+
+            <!-- MUSIC CARD -->
+
+            <div class="music-card">
+
+
+                <!-- عکس آهنگ -->
+
+                <div class="music-photo">
+
+                    <img
+                        src="images/music.jpg"
+                        alt="Music"
+                    >
+
+                </div>
+
+
+                <!-- اطلاعات آهنگ -->
+
+                <div class="music-info">
+
+                    <p class="music-label">
+                        یه آهنگ برای تو 🎶
+                    </p>
+
+
+                    <div class="music-equalizer">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- دکمه پخش -->
+
+                <button
+                    id="musicButton"
+                    class="music-play-button"
+                    type="button"
+                    onclick="playMusic()"
+                >
+
+                    <span id="musicPlayIcon">
+                        ▶
+                    </span>
+
+                </button>
+
+
+                <!-- نوار پیشرفت -->
+
+                <div class="music-progress">
+
+                    <div
+                        id="musicProgressBar"
+                        class="music-progress-bar"
+                    ></div>
+
+                </div>
+
+
+                <!-- زمان -->
+
+                <div class="music-time">
+
+                    <span id="musicCurrentTime">
+                        0:00
+                    </span>
+
+                    <span id="musicDuration">
+                        0:00
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- فایل آهنگ -->
+
+            <audio id="birthdayMusic">
+
+                <source
+                    src="Music/music.mp3"
+                    type="audio/mpeg"
+                >
+
+            </audio>
+
+
+            <p class="music-hint">
+                وقتی آماده بودی، بزن ▶
+            </p>
+
+
+            <button
+                class="story-button music-next-button"
+                type="button"
+                onclick="nextScene(7)"
+            >
+                حالا یه چیز دیگه... ❤️
             </button>
 
 
-            <div class="music-progress">
+        </div>
 
-                <div
-                    id="musicProgressBar"
-                    class="music-progress-bar"
-                ></div>
-
-            </div>
+    </section>
 
 
-            <div class="music-time">
 
-                <span id="musicCurrentTime">
-                    0:00
-                </span>
+    <!-- =====================================================
+         SCENE 7 - EMOTIONAL
+         ===================================================== -->
 
-                <span id="musicDuration">
-                    0:00
-                </span>
+    <section
+        id="scene7"
+        class="scene emotional-scene"
+    >
 
-            </div>
 
+        <div class="emotional-background">
+
+            <span>♡</span>
+            <span>♡</span>
+            <span>✦</span>
+            <span>♡</span>
+            <span>✦</span>
 
         </div>
 
 
-        <!-- فایل آهنگ -->
+        <div class="scene-content emotional-content">
 
-        <audio id="birthdayMusic">
 
-            <source
-                src="Music/music.mp3"
-                type="audio/mpeg"
+            <div class="emotional-top-symbol">
+                ♡
+            </div>
+
+
+            <p class="emotional-line emotional-line-1">
+                ولی جدی...
+            </p>
+
+
+            <p class="emotional-line emotional-line-2">
+                امیدوارم سال جدید زندگیت
+                پر از اتفاقای خوب باشه.
+            </p>
+
+
+            <p class="emotional-line emotional-line-3">
+                از اون اتفاقایی که وقتی
+                بهشون فکر می‌کنی،
+                ناخودآگاه لبخند بزنی.
+            </p>
+
+
+            <p class="emotional-line emotional-line-4">
+                چون واقعاً لیاقتشو داری. 🌸
+            </p>
+
+
+            <div class="emotional-divider"></div>
+
+
+            <p class="final-wish">
+                تولدت مبارک پرستو ❤️
+            </p>
+
+
+            <button
+                type="button"
+                class="emotional-next-button"
+                onclick="nextScene(8)"
             >
-
-        </audio>
-
-
-        <p class="music-hint">
-            وقتی آماده بودی، بزن ▶
-        </p>
+                🕊️
+            </button>
 
 
-        <button
-            class="story-button music-next-button"
-            type="button"
-            onclick="nextScene(7)"
-        >
-            حالا یه چیز دیگه... ❤️
-        </button>
+        </div>
 
-
-    </div>
-
-</section>
+    </section>
 
 
 
-<!-- =====================================================
-     SCENE 7 - EMOTIONAL
-     ===================================================== -->
+    <!-- =====================================================
+         SCENE 8 - FINAL
+         ===================================================== -->
 
-<section id="scene7" class="scene emotional-scene">
-
-
-    <div class="emotional-background">
-
-        <span>♡</span>
-        <span>♡</span>
-        <span>✦</span>
-        <span>♡</span>
-        <span>✦</span>
-
-    </div>
+    <section
+        id="scene8"
+        class="scene final-scene"
+    >
 
 
-    <div class="scene-content emotional-content">
+        <!-- ذرات -->
 
+        <div class="final-particles">
 
-        <div class="emotional-top-symbol">
-            ♡
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
         </div>
 
 
-        <p class="emotional-line emotional-line-1">
-            ولی جدی...
-        </p>
+        <!-- پرستوها -->
+
+        <div class="final-birds">
+
+            <span>🕊️</span>
+            <span>🕊️</span>
+            <span>🕊️</span>
+
+        </div>
 
 
-        <p class="emotional-line emotional-line-2">
-            امیدوارم سال جدید زندگیت
-            پر از اتفاقای خوب باشه.
-        </p>
+        <div class="scene-content final-content">
 
 
-        <p class="emotional-line emotional-line-3">
-            از اون اتفاقایی که وقتی
-            بهشون فکر می‌کنی،
-            ناخودآگاه لبخند بزنی.
-        </p>
+            <p class="final-small">
+                برای تو...
+            </p>
 
 
-        <p class="emotional-line emotional-line-4">
-            چون واقعاً لیاقتشو داری. 🌸
-        </p>
+            <h1 class="final-title">
+                Happy Birthday
+            </h1>
 
 
-        <div class="emotional-divider"></div>
+            <h2 class="final-name">
+                Parastoo
+            </h2>
 
 
-        <p class="final-wish">
-            تولدت مبارک پرستو ❤️
-        </p>
+            <div class="final-line"></div>
 
 
-        <button
-            type="button"
-            class="emotional-next-button"
-            onclick="nextScene(8)"
-        >
-            🕊️
-        </button>
+            <p class="final-message">
+                امیدوارم امسال،
+                یکی از قشنگ‌ترین فصل‌های زندگیت باشه.
+            </p>
 
 
-    </div>
+            <p class="final-made">
+                Made especially for you ♡
+            </p>
 
-</section>
 
+            <button
+                type="button"
+                class="restart-button"
+                onclick="restartSite()"
+            >
+                ↻ دوباره از اول
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+</main>
 
 
 <!-- =====================================================
-     SCENE 8 - FINAL
+     JAVASCRIPT
      ===================================================== -->
 
-<section id="scene8" class="scene final-scene">
+<script src="script.js"></script>
 
 
-    <!-- ذرات -->
-
-    <div class="final-particles">
-
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-
-    </div>
-
-
-    <!-- پرستوها -->
-
-    <div class="final-birds">
-
-        <span>🕊️</span>
-        <span>🕊️</span>
-        <span>🕊️</span>
-
-    </div>
-
-
-    <div class="scene-content final-content">
-
-
-        <p class="final-small">
-            برای تو...
-        </p>
-
-
-        <h1 class="final-title">
-            Happy Birthday
-        </h1>
-
-
-        <h2 class="final-name">
-            Parastoo
-        </h2>
-
-
-        <div class="final-line"></div>
-
-
-        <p class="final-message">
-            امیدوارم امسال،
-            یکی از قشنگ‌ترین فصل‌های زندگیت باشه.
-        </p>
-
-
-        <p class="final-made">
-            Made especially for you ♡
-        </p>
-
-
-        <button
-            type="button"
-            class="restart-button"
-            onclick="restartSite()"
-        >
-            ↻ دوباره از اول
-        </button>
-
-
-    </div>
-
-</section>
+</body>
+</html>
